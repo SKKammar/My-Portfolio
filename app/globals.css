@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ── Palette (monochrome, no accent hue) ───────────────────── */
+  --color-ink:        #0a0a0a;   /* page background */
+  --color-ink-card:   #111111;   /* card surfaces */
+  --color-ink-border: #2a2a2a;   /* hairline rule — the signature motif */
+  --color-fog:        #3a3a3a;   /* secondary text */
+  --color-ash:        #7a7a7a;   /* muted/placeholder text */
+  --color-paper:      #f0ede6;   /* primary text — warm off-white, not pure #fff */
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-display: var(--font-cormorant), 'Cormorant Garamond', serif;
+  --font-sans:    var(--font-inter), 'Inter', sans-serif;
+
+  /* ── Type scale ────────────────────────────────────────────── */
+  --font-size-xs:   11px;
+  --font-size-sm:   13px;
+  --font-size-base: 16px;
+  --font-size-md:   20px;
+  --font-size-lg:   28px;
+  --font-size-xl:   48px;
+  --font-size-2xl:  72px;
+  --font-size-3xl:  96px;
+
+  /* ── Spacing (8px grid) ───────────────────────────────────── */
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-6:  48px;
+  --space-8:  64px;
+  --space-16: 128px;
+
+  /* ── Motion ───────────────────────────────────────────────── */
+  --duration-fade:   600ms;
+  --duration-reveal: 800ms;
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: #0a0a0a;
+  color: #f0ede6;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── The signature motif — the hairline rule ─────────────────── */
+.rule {
+  width: 100%;
+  height: 1px;
+  background: var(--color-ink-border);
+  border: none;
 }
