@@ -1,39 +1,27 @@
-'use client';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
+import { Hero } from '@/components/sections/Hero';
+import { About } from '@/components/sections/About';
+import { Projects } from '@/components/sections/Projects';
+import { Skills } from '@/components/sections/Skills';
+import { GitHub } from '@/components/sections/GitHub';
+import { Contact } from '@/components/sections/Contact';
+import { PendulumSceneClient } from '@/components/PendulumSceneClient';
 
-import { useScroll, useMotionValueEvent } from 'motion/react';
-import { useState } from 'react';
-
-import Skills from "@/components/sections/Skills";
-import GitHub from "@/components/sections/GitHub";
-import Contact from "@/components/sections/Contact";
-
-import Navbar from '../components/layout/Navbar';
-import Hero from '../components/sections/Hero';
-import About from '../components/sections/About';
-import Projects from '../components/sections/Projects';
-import Footer from '../components/layout/Footer';
-
-import PendulumScene from '@/components/PendulumScene';
-
-export default function HomePage() {
-    const { scrollYProgress } = useScroll();
-    const [progress, setProgress] = useState(0);
-
-    useMotionValueEvent(scrollYProgress, 'change', (v) => {
-        setProgress(v);
-    });
-
+export default function Home() {
     return (
         <>
-            <main className="relative z-10 min-h-screen text-white">                <Navbar />
+            <Navbar />
+            <main className="relative">
+                <PendulumSceneClient />
                 <Hero />
                 <About />
                 <Projects />
                 <Skills />
                 <GitHub />
                 <Contact />
-                <Footer />
             </main>
+            <Footer />
         </>
     );
 }

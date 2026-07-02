@@ -1,17 +1,20 @@
-import { FadeIn } from "@/components/ui/FadeIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FadeIn } from '@/components/ui/FadeIn';
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Rule } from '@/components/ui/Rule';
 
-export default function About() {
-    return (
-        <FadeIn>
-            <section id="about" className="mx-auto max-w-6xl px-8 py-32">
-                <SectionHeading>About Me</SectionHeading>
-
-                <p className="max-w-3xl font-sans leading-8 text-white/70">
-                    This section will later contain your biography, experience, education,
-                    and skills.
-                </p>
-            </section>
-        </FadeIn>
-    );
+export function About() {
+  return (
+    <section id="about" className="px-6 md:px-12 py-24 max-w-3xl">
+      <FadeIn>
+        <SectionHeading>About</SectionHeading>
+        <p className="font-display text-lg md:text-2xl leading-relaxed text-paper">
+          I'm a final-year Computer Science engineering student focused on building
+          systems that actually work end to end — not just demos. My recent work spans
+          Spring Boot backends, ML-driven risk models, and full-stack platforms with real
+          authentication and deployment concerns baked in from day one.
+        </p>
+      </FadeIn>
+      <Rule className="mt-16" />
+    </section>
+  );
 }

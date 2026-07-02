@@ -1,72 +1,43 @@
-import { FadeIn } from "@/components/ui/FadeIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Tag } from "@/components/ui/Tag";
-import { projects } from "@/data/projects";
+import { FadeIn } from '@/components/ui/FadeIn';
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Rule } from '@/components/ui/Rule';
+import { ProjectCard } from './ProjectCard';
+import { placeholderProjects, type Project } from '@/data/projects';
+import { createServerSupabaseClient } from '@/lib/supabase/server';
 
-export default function Projects() {
-    return (
-        <FadeIn>
-            <section
-                id="projects"
-                className="mx-auto max-w-6xl px-6 py-32"
-            >
-                <SectionHeading>Projects</SectionHeading>
+async function getProjects(): Promise<Project[]> {
+  try {
+    const supabase = await createServerSupabaseClient();
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .order('year', { ascending: false });
 
-                <div className="grid gap-8 md:grid-cols-3">
-                    {projects.map((project) => (
-                        <article
-                            key={project.id}
-                            className="border border-ink-border bg-ink-card p-6 transition hover:-translate-y-1"
-                        >
-                            <p className="mb-2 text-sm text-fog">
-                                {project.category} • {project.year}
-                            </p>
+    if (error || !data || data.length === 0) return placeholderProjects;
+    return data as Project[];
+  } catch {
+    // Supabase env vars not set yet, or table doesn't exist — fall back
+    // gracefully so the site still builds and renders.
+    return placeholderProjects;
+  }
+}
 
-                            <h3 className="mb-2 font-display text-2xl">
-                                {project.title}
-                            </h3>
+export async function Projects() {
+  const projects = await getProjects();
 
-                            <p className="mb-4 text-fog">
-                                {project.subtitle}
-                            </p>
-
-                            <p className="mb-6">
-                                {project.description}
-                            </p>
-
-                            <div className="mb-6 flex flex-wrap gap-2">
-                                {project.technologies.map((tech) => (
-                                    <Tag key={tech}>{tech}</Tag>
-                                ))}
-                            </div>
-
-                            <div className="flex gap-6">
-                                {project.githubUrl && (
-                                    <a
-                                        href={project.githubUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:text-fog transition"
-                                    >
-                                        GitHub →
-                                    </a>
-                                )}
-
-                                {project.liveUrl && (
-                                    <a
-                                        href={project.liveUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:text-fog transition"
-                                    >
-                                        Live →
-                                    </a>
-                                )}
-                            </div>
-                        </article>
-                    ))}
-                </div>
-            </section>
-        </FadeIn>
-    );
+  return (
+    <section id="projects" className="px-6 md:px-12 py-24">
+      <FadeIn>
+        <SectionHeading>Projects</SectionHeading>
+      </FadeIn>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {projects.map((project) => (
+          <FadeIn key={project.id}>
+            <ProjectCard project={project} />
+          </FadeIn>
+        ))}
+      </div>
+      <Rule className="mt-16" />
+    </section>
+  );
 }

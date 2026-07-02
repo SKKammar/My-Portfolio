@@ -1,28 +1,18 @@
-import { Button } from "@/components/ui/Button";
-
-export default function Hero() {
-    return (
-        <section className="flex min-h-screen items-center justify-center">
-            <div className="text-center">
-                <p className="mb-4 font-sans text-gold">
-                    Software Engineer
-                </p>
-
-                <h1 className="font-display text-3xl text-white">
-                    Building Elegant
-                    <br />
-                    Digital Experiences
-                </h1>
-
-                <p className="mx-auto mt-6 max-w-xl font-sans text-white/70">
-                    Passionate about creating beautiful, scalable and meaningful web
-                    applications.
-                </p>
-
-                <div className="mt-10">
-                    <Button>View Projects</Button>
-                </div>
-            </div>
-        </section>
-    );
+export function Hero() {
+  return (
+    <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 relative">
+      <p className="font-sans text-xs text-fog uppercase tracking-[0.2em] mb-6">
+        Software Engineer
+      </p>
+      <h1 className="font-display font-light text-[15vw] md:text-[7vw] leading-[0.95] text-paper">
+        Santosh K
+        <br />
+        <span className="italic">Kammar</span>
+      </h1>
+      <p className="font-sans text-sm text-ash max-w-md mt-8">
+        Final-year engineer building thoughtful, production-grade systems —
+        from data pipelines to full-stack platforms.
+      </p>
+    </section>
+  );
 }
