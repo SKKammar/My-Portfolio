@@ -1,43 +1,84 @@
 import { FadeIn } from '@/components/ui/FadeIn';
-import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Rule } from '@/components/ui/Rule';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ProjectCard } from './ProjectCard';
 import { placeholderProjects, type Project } from '@/data/projects';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 
 async function getProjects(): Promise<Project[]> {
-  try {
-    const supabase = await createServerSupabaseClient();
-    const { data, error } = await supabase
-      .from('projects')
-      .select('*')
-      .order('year', { ascending: false });
+    try {
+        const supabase = await createServerSupabaseClient();
 
-    if (error || !data || data.length === 0) return placeholderProjects;
-    return data as Project[];
-  } catch {
-    // Supabase env vars not set yet, or table doesn't exist — fall back
-    // gracefully so the site still builds and renders.
-    return placeholderProjects;
-  }
+        const { data, error } = await supabase
+            .from('projects')
+            .select('*')
+            .order('featured', { ascending: false })
+            .order('year', { ascending: false });
+
+        if (error || !data || data.length === 0) {
+            return placeholderProjects;
+        }
+
+        return data.map((project) => ({
+            id: project.id,
+            title: project.title,
+            subtitle: project.subtitle,
+            description: project.description,
+            coverImage: project.cover_image,
+            technologies: project.technologies ?? [],
+            liveUrl: project.live_url,
+            githubUrl: project.github_url,
+            year: project.year,
+            featured: project.featured ?? false,
+            category: project.category,
+        })) as Project[];
+    } catch {
+        return placeholderProjects;
+    }
 }
 
 export async function Projects() {
-  const projects = await getProjects();
+    const projects = await getProjects();
 
-  return (
-    <section id="projects" className="px-6 md:px-12 py-24">
-      <FadeIn>
-        <SectionHeading>Projects</SectionHeading>
-      </FadeIn>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-        {projects.map((project) => (
-          <FadeIn key={project.id}>
-            <ProjectCard project={project} />
-          </FadeIn>
-        ))}
-      </div>
-      <Rule className="mt-16" />
-    </section>
-  );
+    const featured = projects.filter((p) => p.featured);
+    const others = projects.filter((p) => !p.featured);
+
+    return (
+        <section
+            id="projects"
+            className="mx-auto max-w-7xl px-6 py-28 md:px-12"
+        >
+            <FadeIn>
+                <SectionHeading>Featured Projects</SectionHeading>
+            </FadeIn>
+
+            <div className="mt-12 space-y-8">
+                {featured.map((project) => (
+                    <FadeIn key={project.id}>
+                        <ProjectCard project={project} featured />
+                    </FadeIn>
+                ))}
+            </div>
+
+            {others.length > 0 && (
+                <>
+                    <FadeIn>
+                        <h3 className="mt-24 text-sm uppercase tracking-[0.25em] text-fog">
+                            More Projects
+                        </h3>
+                    </FadeIn>
+
+                    <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                        {others.map((project) => (
+                            <FadeIn key={project.id}>
+                                <ProjectCard project={project} />
+                            </FadeIn>
+                        ))}
+                    </div>
+                </>
+            )}
+
+            <Rule className="mt-20" />
+        </section>
+    );
 }

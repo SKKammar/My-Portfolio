@@ -1,31 +1,94 @@
-import type { Metadata } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import type { Metadata, Viewport } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+
 import './globals.css';
 
-const cormorant = Cormorant_Garamond({
+const geistSans = Geist({
+  variable: '--font-geist-sans',
   subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
-  display: 'swap',
 });
 
-const inter = Inter({
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-inter',
-  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Santosh K Kammar',
-  description: 'Software engineer — thoughtful systems, clean code.',
+  title: {
+    default: 'Santosh K Kammar',
+    template: '%s | Santosh K Kammar',
+  },
+
+  description:
+      'Computer Science student building production-grade backend systems, full-stack web applications, AI-powered solutions, and scalable software.',
+
+  keywords: [
+    'Santosh K Kammar',
+    'Software Engineer',
+    'Java',
+    'Spring Boot',
+    'Next.js',
+    'TypeScript',
+    'Portfolio',
+    'Backend Developer',
+    'Full Stack Developer',
+  ],
+
+  authors: [
+    {
+      name: 'Santosh K Kammar',
+    },
+  ],
+
+  creator: 'Santosh K Kammar',
+
+  openGraph: {
+    title: 'Santosh K Kammar',
+    description:
+        'Software Engineer • Backend Developer • Full Stack Developer',
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Santosh K Kammar',
+    description:
+        'Software Engineer • Backend Developer • Full Stack Developer',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  icons: {
+    icon: '/icon.svg',
+    apple: '/apple-icon.png',
+  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#09090B',
+};
+
+export default function RootLayout({
+                                     children,
+                                   }: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body>{children}</body>
-    </html>
+      <html
+          lang="en"
+          suppressHydrationWarning
+          className={`${geistSans.variable} ${geistMono.variable}`}
+      >
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+      {children}
+
+      {process.env.NODE_ENV === 'production' && <Analytics />}
+      </body>
+      </html>
   );
 }

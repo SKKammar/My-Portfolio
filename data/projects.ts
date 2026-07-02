@@ -1,44 +1,81 @@
 export interface Project {
   id: string;
   title: string;
-  subtitle: string;
-  description: string;
-  coverImage: string;
+  subtitle: string | null;
+  description: string | null;
+
+  coverImage: string | null;
+
   technologies: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  year: number;
+
+  liveUrl: string | null;
+  githubUrl: string | null;
+
+  year: number | null;
+
   featured: boolean;
-  category: '3D' | 'Web' | 'Mobile' | 'Branding' | 'Other';
+
+  category: string | null;
 }
 
-// Placeholder data used until Supabase is wired into the Projects section.
-// Swap fetchProjects() below for a real Supabase query when ready — the
-// Project shape doesn't change, so the section component barely changes either.
 export const placeholderProjects: Project[] = [
   {
     id: 'inventory-system',
+
     title: 'Inventory & Order Management System',
+
     subtitle: 'Production-grade Spring Boot backend',
+
     description:
-      'JWT-authenticated inventory and order platform built with Spring Boot 3.2, MySQL, and Hibernate, with role-based access and Swagger docs.',
+        'JWT-authenticated inventory and order platform built with Spring Boot, MySQL, Hibernate and role-based authentication.',
+
     coverImage: '/images/projects/inventory.png',
-    technologies: ['Spring Boot', 'MySQL', 'Hibernate', 'JWT'],
-    githubUrl: 'https://github.com/SKKammar/inventory',
+
+    technologies: [
+      'Spring Boot',
+      'Java',
+      'MySQL',
+      'JWT',
+    ],
+
+    liveUrl: null,
+
+    githubUrl: 'https://github.com/SKKammar',
+
     year: 2026,
+
     featured: true,
-    category: 'Web',
+
+    category: 'Backend',
   },
+
   {
     id: 'safe-bump',
+
     title: 'Safe Bump',
-    subtitle: 'Pregnancy risk alert web app',
+
+    subtitle: 'AI Assisted Pregnancy Risk Prediction',
+
     description:
-      'A weighted rule-based risk engine paired with a Claude-powered chatbot, built in a 6-hour hackathon.',
+        'Hackathon MVP combining FastAPI, React and an AI assistant for pregnancy risk awareness.',
+
     coverImage: '/images/projects/safe-bump.png',
-    technologies: ['FastAPI', 'React', 'SQLite'],
+
+    technologies: [
+      'React',
+      'FastAPI',
+      'SQLite',
+      'Claude AI',
+    ],
+
+    liveUrl: null,
+
+    githubUrl: 'https://github.com/SKKammar',
+
     year: 2026,
+
     featured: true,
-    category: 'Web',
+
+    category: 'AI',
   },
 ];
