@@ -63,7 +63,6 @@ export function Contact() {
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Contact via ${method.name}`}
                   whileHover={{ y: -5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   className={`group relative flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-black/40 p-10 backdrop-blur-md transition-colors duration-75 ${method.color}`}

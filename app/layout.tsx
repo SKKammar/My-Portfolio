@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { MotionConfig } from 'framer-motion';
 import { CustomCursor } from '@/components/ui/CustomCursor';
-import { BackToTop } from '@/components/ui/BackToTop';
 
 import './globals.css';
 
@@ -47,29 +46,17 @@ export const metadata: Metadata = {
   creator: 'Santosh K Kammar',
 
   openGraph: {
-    title: 'Santosh K Kammar | Full-Stack Developer',
+    title: 'Santosh K Kammar',
     description:
-        'Software Engineer • Backend Developer • Full Stack Developer • Next.js & Spring Boot',
-    url: 'https://my-portfolio-sanka.vercel.app/',
-    siteName: 'Santosh K Kammar Portfolio',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Santosh K Kammar - Full-Stack Developer Portfolio',
-      },
-    ],
-    locale: 'en_US',
+        'Software Engineer • Backend Developer • Full Stack Developer',
     type: 'website',
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Santosh K Kammar | Full-Stack Developer',
+    title: 'Santosh K Kammar',
     description:
-        'Software Engineer • Backend Developer • Full Stack Developer • Next.js & Spring Boot',
-    images: ['/og-image.jpg'],
+        'Software Engineer • Backend Developer • Full Stack Developer',
   },
 
   robots: {
@@ -102,7 +89,6 @@ export default function RootLayout({
         <MotionConfig reducedMotion="user">
           <CustomCursor />
           {children}
-          <BackToTop />
         </MotionConfig>
 
       {process.env.NODE_ENV === 'production' && <Analytics />}
