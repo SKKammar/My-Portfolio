@@ -15,9 +15,10 @@ export function ProjectCard({
     return (
         <Card
             onClick={onClick}
-            className={`group flex flex-col p-8 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] ${onClick ? 'cursor-pointer' : ''}`}
+            className={`group flex flex-col p-8 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] h-full ${onClick ? 'cursor-pointer' : ''}`}
         >
             <div className="flex flex-col h-full">
+                <div className="flex-grow flex flex-col">
                     <div className="mb-6 flex items-start justify-between gap-4">
                         <div className="flex flex-wrap items-center gap-3">
                             {project.year && (
@@ -57,6 +58,14 @@ export function ProjectCard({
                         </p>
                     )}
 
+                    {project.caseStudy && (
+                        <div className="mt-6 rounded-xl bg-white/5 p-4 text-sm leading-relaxed text-neutral-400 border border-white/5">
+                            <p><strong className="text-neutral-300 font-medium">Problem:</strong> {project.caseStudy.problem}</p>
+                            <p className="mt-2"><strong className="text-neutral-300 font-medium">Solution:</strong> {project.caseStudy.approach}</p>
+                            <p className="mt-2"><strong className="text-neutral-300 font-medium">Result:</strong> {project.caseStudy.results[0]}</p>
+                        </div>
+                    )}
+
                     {project.technologies?.length > 0 && (
                         <div className="mt-8 flex flex-wrap gap-2">
                             {project.technologies.map((tech) => (
@@ -64,32 +73,37 @@ export function ProjectCard({
                             ))}
                         </div>
                     )}
+                </div>
 
-                    <div className="mt-10 flex flex-wrap gap-4">
-                        {project.githubUrl && (
-                            <a
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-white transition hover:text-neutral-300"
-                            >
-                                <GithubIcon size={16} />
-                                Github
-                            </a>
-                        )}
+                <div className="mt-10 flex flex-wrap gap-4 shrink-0">
+                    {project.githubUrl && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`View ${project.title} on GitHub`}
+                            className="inline-flex items-center gap-2 text-sm text-white transition hover:text-neutral-300"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <GithubIcon size={16} />
+                            Github
+                        </a>
+                    )}
 
-                        {project.liveUrl && (
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-white transition hover:text-neutral-300"
-                            >
-                                Live Demo
-                                <ExternalLink size={16} />
-                            </a>
-                        )}
-                    </div>
+                    {project.liveUrl && (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`View ${project.title} Live Demo`}
+                            className="inline-flex items-center gap-2 text-sm text-white transition hover:text-neutral-300"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            Live Demo
+                            <ExternalLink size={16} />
+                        </a>
+                    )}
+                </div>
             </div>
         </Card>
     );

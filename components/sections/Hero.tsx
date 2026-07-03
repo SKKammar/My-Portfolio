@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, MessageSquare } from 'lucide-react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 
 const containerVariants: Variants = {
@@ -33,7 +33,11 @@ export function Hero() {
         <section className="relative flex min-h-screen items-center overflow-hidden px-6 md:px-12">
 
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                <div className="absolute left-1/2 top-32 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-white/5 blur-[180px]" />
+                <motion.div 
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute left-1/2 top-32 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-white/10 blur-[180px]" 
+                />
                 <div className="absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-white/5 blur-[180px]" />
             </div>
 
@@ -47,15 +51,15 @@ export function Hero() {
                     animate="show"
                 >
                     <motion.div variants={itemVariants}>
-                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[0.9] font-light text-6xl sm:text-7xl md:text-[8rem] lg:text-[9rem]">
+                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[0.9] font-bold text-6xl sm:text-7xl md:text-[8rem] lg:text-[9rem]">
                             Santosh
                             <br />
-                            <span className="italic">Kammar</span>
+                            <span className="italic font-light">Kammar</span>
                         </h1>
                     </motion.div>
 
                     <motion.div variants={itemVariants}>
-                        <p className="mt-10 max-w-2xl text-base leading-relaxed text-neutral-400 md:text-lg">
+                        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-neutral-400 md:text-base opacity-80">
                             Building scalable backend systems, modern web applications, and
                             Artificial Intelligence-powered solutions using Spring Boot, Next.js, TypeScript and Java.
                             I enjoy transforming complex ideas into clean, production-ready
@@ -66,7 +70,17 @@ export function Hero() {
                     <motion.div variants={itemVariants} className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
                         <div className="flex flex-wrap gap-4">
                             <a
+                                href="#contact"
+                                aria-label="Let's Talk"
+                                className="group inline-flex items-center rounded-xl bg-blue-500 hover:bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-300 hover:-translate-y-1"
+                            >
+                                Let&apos;s Talk
+                                <MessageSquare className="ml-2 h-4 w-4" />
+                            </a>
+
+                            <a
                                 href="#projects"
+                                aria-label="View Projects"
                                 className="group inline-flex items-center rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
                             >
                                 View Projects
@@ -77,6 +91,7 @@ export function Hero() {
                                 href="https://github.com/SKKammar/My-Portfolio/raw/master/public/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="Download Resume"
                                 className="inline-flex items-center rounded-xl border border-white/10 bg-black/40 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                             >
                                 <Download className="mr-2 h-4 w-4" />
