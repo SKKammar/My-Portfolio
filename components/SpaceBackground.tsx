@@ -28,7 +28,7 @@ export function SpaceBackground() {
   const y = useTransform(scrollY, [0, 1000], [0, 150]);
 
   return (
-    <motion.div style={{ y }} className="fixed inset-0 z-0 bg-black">
+    <motion.div style={{ y, scale: 1.2 }} className="fixed inset-0 z-0 bg-black">
       <Suspense 
         fallback={
           <div className="flex h-full w-full items-center justify-center bg-black text-sm uppercase tracking-widest text-neutral-500">

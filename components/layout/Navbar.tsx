@@ -14,6 +14,13 @@ export function Navbar() {
     const [active, setActive] = useState('');
     const [mobileOpen, setMobileOpen] = useState(false);
     const [nameVisible, setNameVisible] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 30);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     useEffect(() => {
         const heroName = document.getElementById('hero-name');
@@ -63,7 +70,11 @@ export function Navbar() {
 
     return (
         <header
-            className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-transparent`}
+            className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+                scrolled
+                    ? 'backdrop-blur-xl bg-ink/75 border-b border-white/10'
+                    : 'bg-transparent'
+            }`}
         >
             <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-12">
                 <a
