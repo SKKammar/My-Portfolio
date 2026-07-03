@@ -6,7 +6,7 @@ export function About() {
     return (
         <section
             id="about"
-            className="mx-auto max-w-7xl px-6 py-28 md:px-12"
+            className="mx-auto max-w-7xl px-6 py-16 md:py-20 md:px-12"
         >
             <FadeIn>
                 <SectionHeading>About</SectionHeading>
@@ -82,7 +82,7 @@ export function About() {
 
             </div>
 
-            <Rule className="mt-24" />
+            <Rule className="mt-16" />
         </section>
     );
 }

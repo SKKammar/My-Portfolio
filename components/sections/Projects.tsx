@@ -46,7 +46,7 @@ export async function Projects() {
     return (
         <section
             id="projects"
-            className="mx-auto max-w-7xl px-6 py-28 md:px-12"
+            className="mx-auto max-w-7xl px-6 py-16 md:py-20 md:px-12"
         >
             <FadeIn>
                 <SectionHeading>Featured Projects</SectionHeading>
@@ -78,7 +78,7 @@ export async function Projects() {
                 </>
             )}
 
-            <Rule className="mt-20" />
+            <Rule className="mt-16" />
         </section>
     );
 }

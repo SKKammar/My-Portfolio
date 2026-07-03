@@ -15,7 +15,7 @@ export function Hero() {
 
             </div>
 
-            <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col">
+            <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col pt-24">
 
 
 

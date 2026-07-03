@@ -113,7 +113,7 @@ export function Skills() {
     return (
         <section
             id="skills"
-            className="mx-auto max-w-7xl px-6 py-28 md:px-12"
+            className="mx-auto max-w-7xl px-6 py-16 md:py-20 md:px-12"
         >
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -142,7 +142,7 @@ export function Skills() {
                 ))}
             </div>
 
-            <Rule className="mt-32" />
+            <Rule className="mt-20" />
         </section>
     );
 }
