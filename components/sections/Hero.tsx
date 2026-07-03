@@ -74,7 +74,7 @@ export function Hero() {
                             </a>
 
                             <a
-                                href="/resume.pdf"
+                                href="https://github.com/SKKammar/My-Portfolio/raw/master/public/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center rounded-xl border border-white/10 bg-black/40 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"

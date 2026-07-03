@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
@@ -55,18 +56,24 @@ export function Contact() {
 
             <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
               {contactMethods.map((method) => (
-                <a
+                <motion.a
                   key={method.name}
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-black/40 p-10 backdrop-blur-md transition-all duration-200 ${method.color}`}
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className={`group relative flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-black/40 p-10 backdrop-blur-md transition-colors duration-75 ${method.color}`}
                 >
-                  <div className={`flex h-20 w-20 items-center justify-center rounded-full bg-white/5 transition-all duration-200 group-hover:scale-110 ${method.iconBg}`}>
-                    <method.icon size={32} className={`text-neutral-400 transition-colors duration-200 ${method.iconColor}`} />
-                  </div>
+                  <motion.div 
+                    className={`flex h-20 w-20 items-center justify-center rounded-full bg-white/5 transition-colors duration-75 ${method.iconBg}`}
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  >
+                    <method.icon size={32} className={`text-neutral-400 transition-colors duration-75 ${method.iconColor}`} />
+                  </motion.div>
                   <h3 className="font-medium text-lg text-white">{method.name}</h3>
-                </a>
+                </motion.a>
               ))}
             </div>
 
