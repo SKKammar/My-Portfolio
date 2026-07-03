@@ -1,9 +1,34 @@
-# Santosh K Kammar — Portfolio
+# Tick Tock — Santosh K Kammar's Portfolio
 
-Next.js 15 + React 19 + Tailwind v4 portfolio with a hidden Supabase-backed
-admin panel for adding projects (no public sign-up — one admin account only).
+A personal developer portfolio built with **Next.js 15**, **React 19**, and **Tailwind v4**, featuring a custom 3D pendulum clock hero scene and a hidden, Supabase-backed admin panel for managing projects — no public sign-up, one admin account only.
 
-## Folder structure
+Design identity: dark, cinematic, monochrome — Playfair Display + Inter typography, with a recurring hairline-rule motif throughout the UI.
+
+---
+
+## Features
+
+- **3D pendulum clock hero** — built with `react-three-fiber`, rendered client-side
+- **Hidden admin panel** — triple-click the footer copyright to reveal a login modal; add projects straight to Supabase, no public registration surface
+- **Server-rendered project list** — projects section re-fetches from Supabase on each request, so new entries appear immediately
+- **Fully responsive** — includes mobile navigation support
+- **Type-safe throughout** — TypeScript across the app, components, and data layer
+
+---
+
+## Tech Stack
+
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 15, React 19 |
+| Styling | Tailwind CSS v4 |
+| 3D | react-three-fiber |
+| Backend / Auth | Supabase (Postgres + Row Level Security) |
+| Language | TypeScript |
+
+---
+
+## Folder Structure
 
 ```
 my-portfolio/
@@ -44,15 +69,35 @@ my-portfolio/
 └── package.json
 ```
 
-## Local setup
+---
+
+## Getting Started
+
+### 1. Clone and install
 
 ```bash
+git clone https://github.com/SKKammar/My-Portfolio.git
+cd My-Portfolio
 npm install
-cp .env.local.example .env.local   # then fill in the four Supabase values
+```
+
+### 2. Configure environment variables
+
+```bash
+cp .env.local.example .env.local
+```
+
+Fill in the four Supabase values (see setup below), then:
+
+```bash
 npm run dev
 ```
 
-## Supabase setup (one-time)
+Visit `http://localhost:3000`.
+
+---
+
+## Supabase Setup (one-time)
 
 1. **SQL Editor → New query** — create the table and lock it down:
 
@@ -78,49 +123,45 @@ create policy "Public read access" on projects for select using (true);
 -- using the service role key, can write.
 ```
 
-2. **Authentication → Users → Add user** — create your one admin account
-   (real email + password). No public registration page exists in this app.
+2. **Authentication → Users → Add user** — create your one admin account (real email + password). There's no public registration page in this app.
 
-3. **Settings → API** — copy the four values into `.env.local`:
+3. **Settings → API** — copy these four values into `.env.local`:
+
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY` (server-only, never exposed to the browser)
-   - `ADMIN_EMAIL` (must exactly match the user you created in step 2)
+   - `SUPABASE_SERVICE_ROLE_KEY` — server-only, never exposed to the browser
+   - `ADMIN_EMAIL` — must exactly match the user created in step 2
 
-## Using the admin panel
+---
 
-Triple-click the copyright text in the footer within 2 seconds → login modal
-appears → sign in with your admin credentials → add-project form appears.
-Projects save straight to Supabase and show up in the Projects section on
-next page load (or immediately, since it's a server component re-fetching
-on each request).
+## Using the Admin Panel
+
+Triple-click the copyright text in the footer within 2 seconds → login modal appears → sign in with your admin credentials → add-project form appears.
+
+Projects save straight to Supabase and appear in the Projects section on the next page load (or immediately, since it's a server component re-fetching on each request).
+
+---
 
 ## Deploying to Vercel
 
-```bash
-git init
-git add .
-git commit -m "Initial portfolio"
-git remote add origin https://github.com/SKKammar/<your-repo-name>.git
-git push -u origin main
-```
+1. Push the repo to GitHub (already done if you're reading this on GitHub).
+2. Import the repo into [Vercel](https://vercel.com/new).
+3. Framework preset: **Next.js** (auto-detected).
+4. Add the same four environment variables from `.env.local` under **Settings → Environment Variables** (Production + Preview).
+5. Deploy.
 
-Then in Vercel:
-1. Import the GitHub repo.
-2. Framework preset: Next.js (auto-detected).
-3. Add the same four environment variables from `.env.local` under
-   **Settings → Environment Variables** (Production + Preview).
-4. Deploy.
+No other config needed — `next.config.ts` and `postcss.config.mjs` are already set up for the build.
 
-No other config needed — `next.config.ts` and `postcss.config.mjs` are
-already set up for the build.
+---
 
-## Known gaps / next steps
+## Roadmap
 
-- `coverImage` is a plain text path — drop files into
-  `public/images/projects/` manually. Wiring Supabase Storage for
-  drag-and-drop upload is a natural next addition.
-- No edit UI yet for existing projects — `DELETE` is wired in the API route,
-  but there's no button for it in `AdminForm.tsx` yet.
-- Contact section is `mailto:`-based; swap `hello@example.com` for your real
-  email before deploying.
+- [ ] Wire Supabase Storage for drag-and-drop cover image upload (currently `coverImage` is a plain text path — drop files manually into `public/images/projects/`)
+- [ ] Add an edit UI for existing projects (`DELETE` is already wired in the API route, just needs a button in `AdminForm.tsx`)
+- [ ] Swap the placeholder contact email for a real one before sharing this live
+
+---
+
+## License
+
+This project is open for reference and learning. If you're reusing significant chunks of it, a credit back to this repo is appreciated.
