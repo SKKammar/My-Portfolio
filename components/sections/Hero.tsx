@@ -2,7 +2,6 @@
 
 import { ArrowRight, Download } from 'lucide-react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
-import { StatCard } from '@/components/ui/StatCard';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -86,33 +85,7 @@ export function Hero() {
                         </div>
                     </motion.div>
 
-                    <motion.div variants={itemVariants} className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4">
-                    <StatCard 
-                        countEnd={100}
-                        countDecimals={2}
-                        countSuffix=" AUROC"
-                        label="InspectAI" 
-                        sublabel="defect detection" 
-                    />
-                    <StatCard 
-                        countEnd={126}
-                        countSuffix=" req/s"
-                        label="0% errors" 
-                        sublabel="Inventory API" 
-                    />
-                    <StatCard 
-                        countEnd={97}
-                        countSuffix="/100"
-                        label="Titanic ML" 
-                        sublabel="rubric" 
-                    />
-                    <StatCard 
-                        countEnd={9}
-                        countSuffix="K+"
-                        label="Requests" 
-                        sublabel="Load tested" 
-                    />
-                    </motion.div>
+
                 </motion.div>
             </motion.div>
 
