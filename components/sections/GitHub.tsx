@@ -41,9 +41,6 @@ async function getRepos(): Promise<GithubRepo[]> {
   }
 }
 
-// Renamed from `Github` -> `GithubSection` so it can never collide with
-// the GithubIcon import (that collision was silently breaking the icon
-// below before).
 export async function GithubSection() {
   const repos = await getRepos();
 

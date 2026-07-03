@@ -25,7 +25,6 @@ function Starfield() {
 
 export function SpaceBackground() {
   const { scrollY } = useScroll();
-  // Move the background up slightly as we scroll down to create parallax
   const y = useTransform(scrollY, [0, 1000], [0, 150]);
 
   return (

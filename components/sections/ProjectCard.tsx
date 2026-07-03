@@ -7,12 +7,15 @@ import { GithubIcon } from '@/components/icons/BrandIcons';
 
 export function ProjectCard({
                                 project,
+                                onClick,
                             }: {
     project: Project;
+    onClick?: () => void;
 }) {
     return (
         <Card
-            className="group flex flex-col p-8 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            onClick={onClick}
+            className={`group flex flex-col p-8 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] ${onClick ? 'cursor-pointer' : ''}`}
         >
             <div className="flex flex-col h-full">
                     <div className="mb-6 flex items-start justify-between gap-4">

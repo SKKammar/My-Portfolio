@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { SmoothScroll } from '@/components/layout/SmoothScroll';
 
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
@@ -14,27 +15,29 @@ export default function Page() {
       <>
         <SpaceBackground />
         
-        <div className="relative z-10">
-          <Navbar />
+        <SmoothScroll>
+          <div className="relative z-10">
+            <Navbar />
 
-          <main className="overflow-x-hidden">
+            <main className="overflow-x-hidden">
 
-            <Hero />
+              <Hero />
 
-            <About />
+              <About />
 
-            <Projects />
+              <Projects />
 
-            <Skills />
+              <Skills />
 
-            <GithubSection />
+              <GithubSection />
 
-            <Contact />
+              <Contact />
 
-          </main>
+            </main>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </SmoothScroll>
       </>
   );
 }

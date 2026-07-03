@@ -9,32 +9,61 @@ const skillGroups = [
     {
         label: 'Languages',
         color: 'rgba(96, 165, 250, 1)', // blue-400
-        items: ['Java', 'Python', 'TypeScript', 'SQL'],
+        items: [
+            { name: 'Java', context: 'Production backends (Spring Boot)' },
+            { name: 'Python', context: 'ML & CV Scripts' },
+            { name: 'TypeScript', context: 'Type-safe React/Next.js' },
+            { name: 'SQL', context: 'Relational schema design' }
+        ],
     },
     {
         label: 'Backend',
         color: 'rgba(52, 211, 153, 1)', // emerald-400
-        items: ['Spring Boot', 'FastAPI', 'Node.js', 'Hibernate'],
+        items: [
+            { name: 'Spring Boot', context: 'Used in Inventory System, JWT auth' },
+            { name: 'FastAPI', context: 'High-perf ML serving' },
+            { name: 'Node.js', context: 'Serverless Edge Functions' },
+            { name: 'Hibernate', context: 'ORM for Java apps' }
+        ],
     },
     {
         label: 'Frontend',
         color: 'rgba(167, 139, 250, 1)', // violet-400
-        items: ['Next.js', 'React', 'Tailwind CSS', 'Framer'],
+        items: [
+            { name: 'Next.js', context: 'App Router & SSR' },
+            { name: 'React', context: 'Component architecture' },
+            { name: 'Tailwind CSS', context: 'Utility-first styling' },
+            { name: 'Framer', context: 'Complex motion & physics' }
+        ],
     },
     {
         label: 'Database',
         color: 'rgba(251, 191, 36, 1)', // amber-400
-        items: ['MySQL', 'PostgreSQL', 'Supabase'],
+        items: [
+            { name: 'MySQL', context: 'ACID transactions' },
+            { name: 'PostgreSQL', context: 'Advanced queries & RLS' },
+            { name: 'Supabase', context: 'BaaS & Realtime' }
+        ],
     },
     {
         label: 'AI / ML',
         color: 'rgba(244, 114, 182, 1)', // pink-400
-        items: ['OpenCV', 'scikit-learn', 'Pandas', 'PyTorch'],
+        items: [
+            { name: 'OpenCV', context: 'Computer vision pipelines' },
+            { name: 'scikit-learn', context: 'Classical ML models' },
+            { name: 'Pandas', context: 'Data wrangling' },
+            { name: 'PyTorch', context: 'Deep learning research' }
+        ],
     },
     {
         label: 'Tools',
         color: 'rgba(156, 163, 175, 1)', // gray-400
-        items: ['Git', 'Docker', 'Postman', 'IntelliJ'],
+        items: [
+            { name: 'Git', context: 'Version control' },
+            { name: 'Docker', 'context': 'Containerization' },
+            { name: 'Postman', 'context': 'API testing' },
+            { name: 'IntelliJ', 'context': 'Java IDE' }
+        ],
     },
 ];
 
@@ -54,7 +83,6 @@ function OrbitNode({ group }: { group: typeof skillGroups[0] }) {
             onClick={() => setIsHovered(!isHovered)}
             onTouchStart={() => setIsHovered(true)}
         >
-            {/* Core Node */}
             <div 
                 className={`relative z-10 flex flex-col items-center justify-center w-32 h-32 rounded-full border bg-white/5 backdrop-blur-md transition-all duration-500 cursor-pointer overflow-hidden group ${
                     isHovered ? 'scale-105 border-white/30' : 'border-white/10 scale-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]'
@@ -80,17 +108,18 @@ function OrbitNode({ group }: { group: typeof skillGroups[0] }) {
 
                     return (
                         <motion.div
-                            key={item}
+                            key={item.name}
                             initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
                             animate={{ opacity: 1, x, y, scale: 1 }}
                             exit={{ opacity: 0, x: 0, y: 0, scale: 0 }}
                             transition={{ type: "spring", stiffness: 200, damping: 15, delay: i * 0.05 }}
-                            className="absolute hidden md:flex items-center justify-center px-4 py-2 rounded-full border border-white/10 bg-black/60 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] whitespace-nowrap z-20"
+                            className="absolute hidden md:flex flex-col items-center justify-center px-4 py-2 rounded-xl border border-white/10 bg-black/80 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] whitespace-nowrap z-20 group-hover:z-30"
                             style={{ 
                                 boxShadow: `0 0 15px ${group.color.replace('1)', '0.15)')}`
                             }}
                         >
-                            <span className="text-xs font-medium text-white tracking-tight">{item}</span>
+                            <span className="text-xs font-medium text-white tracking-tight">{item.name}</span>
+                            <span className="text-[10px] text-neutral-400 mt-1">{item.context}</span>
                         </motion.div>
                     );
                 })}
@@ -101,14 +130,15 @@ function OrbitNode({ group }: { group: typeof skillGroups[0] }) {
                 <AnimatePresence>
                     {isHovered && items.map((item, i) => (
                         <motion.div
-                            key={item}
+                            key={item.name}
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ delay: i * 0.05 }}
-                            className="flex items-center justify-center px-4 py-2 rounded-xl border border-white/10 bg-black/80 backdrop-blur-xl shadow-xl pointer-events-auto"
+                            className="flex flex-col items-center justify-center px-4 py-3 rounded-xl border border-white/10 bg-black/90 backdrop-blur-xl shadow-xl pointer-events-auto"
                         >
-                             <span className="text-xs font-medium text-white tracking-tight">{item}</span>
+                             <span className="text-xs font-medium text-white tracking-tight">{item.name}</span>
+                             <span className="text-[10px] text-neutral-400 mt-1 text-center">{item.context}</span>
                         </motion.div>
                     ))}
                 </AnimatePresence>
@@ -148,6 +178,25 @@ export function Skills() {
                         <OrbitNode group={group} />
                     </motion.div>
                 ))}
+            </div>
+
+            <div className="mt-24 pt-12 border-t border-white/10 md:hidden">
+                <h3 className="text-sm uppercase tracking-widest text-neutral-500 mb-8 text-center">Complete Skill Matrix</h3>
+                <div className="space-y-8">
+                    {skillGroups.map(group => (
+                        <div key={`fallback-${group.label}`}>
+                            <h4 className="text-white font-medium mb-3" style={{ color: group.color }}>{group.label}</h4>
+                            <div className="flex flex-col gap-3">
+                                {group.items.map(item => (
+                                    <div key={`fallback-item-${item.name}`} className="flex justify-between items-baseline border-b border-white/5 pb-2">
+                                        <span className="text-sm text-neutral-200">{item.name}</span>
+                                        <span className="text-[10px] text-neutral-500 text-right max-w-[60%]">{item.context}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <Rule className="mt-20" />

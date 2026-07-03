@@ -1,18 +1,18 @@
 # Santosh K Kammar's Portfolio
 
-A personal developer portfolio built with **Next.js 15**, **React 19**, and **Tailwind v4**, featuring a custom 3D pendulum clock hero scene and a hidden, Supabase-backed admin panel for managing projects — no public sign-up, one admin account only.
+A personal developer portfolio built with **Next.js 15**, **React 19**, and **Tailwind v4**, featuring a premium **Deep Space Glassmorphism** aesthetic, interactive 3D starfield hero (`react-three-fiber`), and a hidden, Supabase-backed admin panel for managing projects.
 
-Design identity: dark, cinematic, monochrome — Playfair Display + Inter typography, with a recurring hairline-rule motif throughout the UI.
+Design identity: dark, cinematic, monochrome — Playfair Display + Inter typography, with smooth Lenis scrolling, custom framer-motion animations, and a recurring glassy, hairline-rule motif throughout the UI.
 
 ---
 
 ## Features
 
-- **3D pendulum clock hero** — built with `react-three-fiber`, rendered client-side
-- **Hidden admin panel** — triple-click the footer copyright to reveal a login modal; add projects straight to Supabase, no public registration surface
-- **Server-rendered project list** — projects section re-fetches from Supabase on each request, so new entries appear immediately
-- **Fully responsive** — includes mobile navigation support
-- **Type-safe throughout** — TypeScript across the app, components, and data layer
+- **Deep Space 3D Hero** — cinematic parallax scrolling built with `react-three-fiber` and `framer-motion`
+- **Premium Motion System** — buttery smooth `Lenis` scrolling with centralized cubic-bezier easing and custom desktop cursors
+- **Interactive Case Studies** — projects support advanced layout filtering and detailed modal case studies with data visualizations
+- **Hidden Admin Panel** — triple-click the footer copyright to reveal a login modal; add projects straight to Supabase
+- **Fully responsive & Accessible** — full mobile support with respect for OS `prefers-reduced-motion` settings
 
 ---
 
@@ -21,9 +21,10 @@ Design identity: dark, cinematic, monochrome — Playfair Display + Inter typogr
 | Layer | Tech |
 |---|---|
 | Framework | Next.js 15, React 19 |
-| Styling | Tailwind CSS v4 |
-| 3D | react-three-fiber |
-| Backend / Auth | Supabase (Postgres + Row Level Security) |
+| Styling | Tailwind CSS v4, Glassmorphism |
+| Motion | Framer Motion, Lenis |
+| 3D | react-three-fiber, drei |
+| Backend / Auth | Supabase |
 | Language | TypeScript |
 
 ---

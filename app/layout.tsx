@@ -1,6 +1,8 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { MotionConfig } from 'framer-motion';
+import { CustomCursor } from '@/components/ui/CustomCursor';
 
 import './globals.css';
 
@@ -84,7 +86,10 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable}`}
       >
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-      {children}
+        <MotionConfig reducedMotion="user">
+          <CustomCursor />
+          {children}
+        </MotionConfig>
 
       {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
