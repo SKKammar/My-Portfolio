@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 
 import type { Project } from '@/data/projects';
