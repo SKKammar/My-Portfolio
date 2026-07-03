@@ -99,21 +99,27 @@ export async function GithubSection() {
 
                   </div>
 
-                  <p className="mt-5 min-h-[72px] leading-7 text-ash">
-                    {repo.description || 'No description provided.'}
-                  </p>
+                  {repo.description && (
+                    <p className="mt-5 min-h-[72px] leading-7 text-neutral-400">
+                      {repo.description}
+                    </p>
+                  )}
 
-                  <div className="mt-8 flex items-center gap-6 text-sm text-fog">
+                  <div className="mt-8 flex items-center gap-6 text-sm text-neutral-500">
 
-                <span className="flex items-center gap-2">
-                  <Star size={15} />
-                  {repo.stargazers_count}
-                </span>
+                    {repo.stargazers_count > 0 && (
+                        <span className="flex items-center gap-2">
+                          <Star size={15} />
+                          {repo.stargazers_count}
+                        </span>
+                    )}
 
-                    <span className="flex items-center gap-2">
-                  <GitFork size={15} />
-                      {repo.forks_count}
-                </span>
+                    {repo.forks_count > 0 && (
+                        <span className="flex items-center gap-2">
+                          <GitFork size={15} />
+                          {repo.forks_count}
+                        </span>
+                    )}
 
                     {repo.language && (
                         <span>{repo.language}</span>

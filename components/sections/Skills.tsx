@@ -52,11 +52,19 @@ function OrbitNode({ group }: { group: typeof skillGroups[0] }) {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={() => setIsHovered(!isHovered)}
+            onTouchStart={() => setIsHovered(true)}
         >
             {/* Core Node */}
-            <div className="relative z-10 flex flex-col items-center justify-center w-32 h-32 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-500 cursor-pointer overflow-hidden group">
+            <div 
+                className={`relative z-10 flex flex-col items-center justify-center w-32 h-32 rounded-full border bg-white/5 backdrop-blur-md transition-all duration-500 cursor-pointer overflow-hidden group ${
+                    isHovered ? 'scale-105 border-white/30' : 'border-white/10 scale-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]'
+                }`}
+                style={{
+                    boxShadow: isHovered ? `0 0 30px ${group.color.replace('1)', '0.2)')}, inset 0 1px 0 rgba(255,255,255,0.1)` : 'inset 0 1px 0 rgba(255,255,255,0.1)'
+                }}
+            >
                 <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                    className={`absolute inset-0 transition-opacity duration-500 ${isHovered ? 'opacity-30' : 'opacity-0'}`}
                     style={{ background: `radial-gradient(circle at center, ${group.color}, transparent 70%)` }}
                 />
                 

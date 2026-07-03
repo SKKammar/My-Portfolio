@@ -1,6 +1,8 @@
 'use client';
 
 import { ArrowRight, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { StatCard } from '@/components/ui/StatCard';
 
 export function Hero() {
     return (
@@ -18,19 +20,24 @@ export function Hero() {
             <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col pt-24">
 
 
+                <motion.div 
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    <h1 className="font-display tracking-tighter text-white leading-[0.9] font-light text-[16vw] md:text-[8rem] lg:text-[9rem]">
+                        Santosh
+                        <br />
+                        <span className="italic">Kammar</span>
+                    </h1>
 
-                <h1 className="font-display tracking-tighter text-white leading-[0.9] font-light text-[16vw] md:text-[8rem] lg:text-[9rem]">
-                    Santosh
-                    <br />
-                    <span className="italic">Kammar</span>
-                </h1>
-
-                <p className="mt-10 max-w-2xl text-base leading-relaxed text-neutral-400 md:text-lg">
-                    Building scalable backend systems, modern web applications, and
-                    AI-powered solutions using Spring Boot, Next.js, TypeScript and Java.
-                    I enjoy transforming complex ideas into clean, production-ready
-                    software.
-                </p>
+                    <p className="mt-10 max-w-2xl text-base leading-relaxed text-neutral-400 md:text-lg">
+                        Building scalable backend systems, modern web applications, and
+                        AI-powered solutions using Spring Boot, Next.js, TypeScript and Java.
+                        I enjoy transforming complex ideas into clean, production-ready
+                        software.
+                    </p>
+                </motion.div>
 
                 <div className="mt-12 flex flex-wrap gap-4">
 
@@ -55,29 +62,27 @@ export function Hero() {
 
                 </div>
 
-                <div className="mt-20 flex items-center gap-12">
-
-                    <div>
-                        <p className="text-3xl font-display tracking-tight text-white">10+</p>
-                        <p className="mt-2 text-xs uppercase tracking-[0.2em] text-neutral-400">
-                            Projects
-                        </p>
-                    </div>
-
-                    <div>
-                        <p className="text-3xl font-display tracking-tight text-white">3+</p>
-                        <p className="mt-2 text-xs uppercase tracking-[0.2em] text-neutral-400">
-                            Years Learning
-                        </p>
-                    </div>
-
-                    <div>
-                        <p className="text-3xl font-display tracking-tight text-white">∞</p>
-                        <p className="mt-2 text-xs uppercase tracking-[0.2em] text-neutral-400">
-                            Curiosity
-                        </p>
-                    </div>
-
+                <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4">
+                    <StatCard 
+                        value="1.00 AUROC" 
+                        label="InspectAI" 
+                        sublabel="defect detection" 
+                    />
+                    <StatCard 
+                        value="126 req/s" 
+                        label="0% errors" 
+                        sublabel="Inventory API" 
+                    />
+                    <StatCard 
+                        value="97/100" 
+                        label="Titanic ML" 
+                        sublabel="rubric" 
+                    />
+                    <StatCard 
+                        value="9K+" 
+                        label="Requests" 
+                        sublabel="Load tested" 
+                    />
                 </div>
 
             </div>

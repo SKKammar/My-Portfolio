@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import * as THREE from 'three';
 
 function Starfield() {
@@ -23,11 +24,23 @@ function Starfield() {
 }
 
 export function SpaceBackground() {
+  const { scrollY } = useScroll();
+  // Move the background up slightly as we scroll down to create parallax
+  const y = useTransform(scrollY, [0, 1000], [0, 150]);
+
   return (
-    <div className="fixed inset-0 z-0 bg-black">
-      <Canvas camera={{ position: [0, 0, 1] }}>
-        <Starfield />
-      </Canvas>
-    </div>
+    <motion.div style={{ y }} className="fixed inset-0 z-0 bg-black">
+      <Suspense 
+        fallback={
+          <div className="flex h-full w-full items-center justify-center bg-black text-sm uppercase tracking-widest text-neutral-500">
+            Initializing Space...
+          </div>
+        }
+      >
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <Starfield />
+        </Canvas>
+      </Suspense>
+    </motion.div>
   );
 }

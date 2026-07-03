@@ -10,6 +10,7 @@ export interface Project {
   year: number | null;
   featured: boolean;
   category: string | null;
+  topMetric?: { value: string; label: string };
 }
 
 export const placeholderProjects: Project[] = [
@@ -54,6 +55,7 @@ export const placeholderProjects: Project[] = [
     year: 2026,
     featured: true,
     category: 'Backend',
+    topMetric: { value: '126 req/s', label: '0% errors' },
   },
   {
     id: 'inspectai-anomaly-detection',
@@ -74,6 +76,7 @@ export const placeholderProjects: Project[] = [
     year: 2026,
     featured: true,
     category: 'Computer Vision',
+    topMetric: { value: '1.00', label: 'AUROC' },
   },
   {
     id: 'zomato-eda',
@@ -113,5 +116,6 @@ export const placeholderProjects: Project[] = [
     year: 2026,
     featured: false,
     category: 'Data Science',
+    topMetric: { value: '97/100', label: 'Rubric' },
   }
 ];
