@@ -29,7 +29,7 @@ async function getRepos() {
   }
 }
 
-export async function GitHub() {
+export async function Github() {
   const repos = await getRepos();
 
   return (

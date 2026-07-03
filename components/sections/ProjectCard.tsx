@@ -89,7 +89,7 @@ export function ProjectCard({
                                 className="inline-flex items-center gap-2 text-sm text-paper transition hover:text-white"
                             >
                                 <Github size={16} />
-                                GitHub
+                                Github
                             </a>
                         )}
 

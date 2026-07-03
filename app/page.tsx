@@ -5,7 +5,7 @@ import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Projects } from '@/components/sections/Projects';
 import { Skills } from '@/components/sections/Skills';
-import { GitHub } from '@/components/sections/GitHub';
+import { Github } from '@/components/sections/GitHub';
 import { Contact } from '@/components/sections/Contact';
 
 export default function Page() {
@@ -23,7 +23,7 @@ export default function Page() {
 
           <Skills />
 
-          <GitHub />
+          <Github />
 
           <Contact />
 

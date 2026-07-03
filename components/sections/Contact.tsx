@@ -42,7 +42,7 @@ export function Contact() {
                   variant="secondary"
               >
                 <Github className="mr-2 h-4 w-4" />
-                GitHub
+                Github
               </Button>
 
               <Button

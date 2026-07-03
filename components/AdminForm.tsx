@@ -104,7 +104,7 @@ export function AdminForm({ onClose }: { onClose: () => void }) {
           <input
             value={form.githubUrl}
             onChange={(e) => handleChange('githubUrl', e.target.value)}
-            placeholder="GitHub URL (optional)"
+            placeholder="Github URL (optional)"
             className="p-2 bg-ink border border-ink-border text-paper font-sans text-sm"
           />
           <input
