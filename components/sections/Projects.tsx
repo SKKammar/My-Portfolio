@@ -3,11 +3,11 @@ import { Rule } from '@/components/ui/Rule';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ProjectCard } from './ProjectCard';
 import { placeholderProjects, type Project } from '@/data/projects';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
+import { createPublicSupabaseClient } from '@/lib/supabase/server';
 
 async function getProjects(): Promise<Project[]> {
     try {
-        const supabase = await createServerSupabaseClient();
+        const supabase = await createPublicSupabaseClient();
 
         const { data, error } = await supabase
             .from('projects')

@@ -2,7 +2,20 @@
 import { useState } from 'react';
 import type { Project } from '@/data/projects';
 
-const emptyProject: Omit<Project, 'id'> = {
+// `Project` models the DB shape, where optional fields come back as
+// `null`. This form always works with real strings/numbers while
+// editing, and only needs to match `Project` when it's submitted.
+type ProjectFormState = Omit<Project, 'id' | 'subtitle' | 'description' | 'coverImage' | 'liveUrl' | 'githubUrl' | 'year' | 'category'> & {
+  subtitle: string;
+  description: string;
+  coverImage: string;
+  liveUrl: string;
+  githubUrl: string;
+  year: number;
+  category: string;
+};
+
+const emptyProject: ProjectFormState = {
   title: '',
   subtitle: '',
   description: '',

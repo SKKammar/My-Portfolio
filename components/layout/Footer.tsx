@@ -1,7 +1,8 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 import { Rule } from '@/components/ui/Rule';
 import { AdminTrigger } from '@/components/AdminTrigger';
+import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
 
 export function Footer() {
     return (
@@ -36,16 +37,16 @@ export function Footer() {
                         rel="noopener noreferrer"
                         className="rounded-full border border-ink-border p-3 text-ash transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:text-paper"
                     >
-                        <Github size={18} />
+                        <GithubIcon size={18} />
                     </a>
 
                     <a
-                        href="LINKEDIN"
+                        href="https://www.linkedin.com/in/santosh-k-kammar-skk162005?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-full border border-ink-border p-3 text-ash transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:text-paper"
                     >
-                        <Linkedin size={18} />
+                        <LinkedinIcon size={18} />
                     </a>
 
                     <a

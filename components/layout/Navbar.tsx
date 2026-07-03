@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const links = [
     { href: '#about', label: 'About', id: 'about' },
@@ -12,6 +13,7 @@ const links = [
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState('');
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 30);
@@ -20,6 +22,14 @@ export function Navbar() {
 
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
+
+    // Lock body scroll while the mobile menu is open
+    useEffect(() => {
+        document.body.style.overflow = mobileOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [mobileOpen]);
 
     useEffect(() => {
         const sections = links
@@ -81,7 +91,38 @@ export function Navbar() {
                         </a>
                     ))}
                 </div>
+
+                <button
+                    type="button"
+                    onClick={() => setMobileOpen((open) => !open)}
+                    aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={mobileOpen}
+                    className="p-2 text-paper md:hidden"
+                >
+                    {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+                </button>
             </nav>
+
+            {mobileOpen && (
+                <div className="border-t border-white/10 bg-ink/95 backdrop-blur-xl md:hidden">
+                    <div className="flex flex-col gap-1 px-6 py-6">
+                        {links.map((link) => (
+                            <a
+                                key={link.id}
+                                href={link.href}
+                                onClick={() => setMobileOpen(false)}
+                                className={`py-3 text-sm uppercase tracking-[0.18em] transition-colors ${
+                                    active === link.id
+                                        ? 'text-paper'
+                                        : 'text-ash hover:text-paper'
+                                }`}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
         </header>
     );
 }

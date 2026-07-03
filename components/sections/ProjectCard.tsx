@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 import type { Project } from '@/data/projects';
 import { Card } from '@/components/ui/Card';
 import { Tag } from '@/components/ui/Tag';
+import { GithubIcon } from '@/components/icons/BrandIcons';
 
 export function ProjectCard({
                                 project,
@@ -88,7 +89,7 @@ export function ProjectCard({
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-sm text-paper transition hover:text-white"
                             >
-                                <Github size={16} />
+                                <GithubIcon size={16} />
                                 Github
                             </a>
                         )}

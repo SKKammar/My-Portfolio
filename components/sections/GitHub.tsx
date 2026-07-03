@@ -1,11 +1,23 @@
-import { ArrowUpRight, Star, GitFork, Github } from 'lucide-react';
+import { ArrowUpRight, Star, GitFork } from 'lucide-react';
 
 import { Card } from '@/components/ui/Card';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Rule } from '@/components/ui/Rule';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { GithubIcon } from '@/components/icons/BrandIcons';
 
-async function getRepos() {
+type GithubRepo = {
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+  fork: boolean;
+};
+
+async function getRepos(): Promise<GithubRepo[]> {
   try {
     const res = await fetch(
         'https://api.github.com/users/SKKammar/repos?sort=updated&per_page=4',
@@ -18,18 +30,21 @@ async function getRepos() {
 
     if (!res.ok) return [];
 
-    const repos = await res.json();
+    const repos: GithubRepo[] = await res.json();
 
     return repos
-        .filter((repo: any) => !repo.fork)
-        .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count)
+        .filter((repo) => !repo.fork)
+        .sort((a, b) => b.stargazers_count - a.stargazers_count)
         .slice(0, 4);
   } catch {
     return [];
   }
 }
 
-export async function Github() {
+// Renamed from `Github` -> `GithubSection` so it can never collide with
+// the GithubIcon import (that collision was silently breaking the icon
+// below before).
+export async function GithubSection() {
   const repos = await getRepos();
 
   return (
@@ -59,7 +74,7 @@ export async function Github() {
               rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-xl border border-ink-border px-5 py-3 text-sm text-paper transition hover:border-white/20 md:flex"
           >
-            <Github size={18} />
+            <GithubIcon size={18} />
             View Profile
           </a>
 
@@ -67,7 +82,7 @@ export async function Github() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
 
-          {repos.map((repo: any) => (
+          {repos.map((repo) => (
               <FadeIn key={repo.id}>
                 <Card className="group p-8">
 

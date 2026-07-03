@@ -1,8 +1,9 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 import { FadeIn } from '@/components/ui/FadeIn';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
+import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
 
 export function Contact() {
   return (
@@ -16,11 +17,11 @@ export function Contact() {
           <div className="mt-10 max-w-3xl">
 
             <h2 className="font-display text-4xl leading-tight text-paper md:text-6xl">
-              Let's build something meaningful together.
+              Let&apos;s build something meaningful together.
             </h2>
 
             <p className="mt-8 max-w-2xl text-base leading-8 text-ash">
-              I'm currently looking for software engineering opportunities,
+              I&apos;m currently looking for software engineering opportunities,
               internships, and exciting projects where I can contribute while
               continuing to grow as an engineer.
             </p>
@@ -41,17 +42,17 @@ export function Contact() {
                   rel="noopener noreferrer"
                   variant="secondary"
               >
-                <Github className="mr-2 h-4 w-4" />
+                <GithubIcon size={16} className="mr-2" />
                 Github
               </Button>
 
               <Button
-                  href="LinkedIn"
+                  href="https://www.linkedin.com/in/santosh-k-kammar-skk162005?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="secondary"
               >
-                <Linkedin className="mr-2 h-4 w-4" />
+                <LinkedinIcon size={16} className="mr-2" />
                 LinkedIn
               </Button>
 

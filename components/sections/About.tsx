@@ -16,13 +16,13 @@ export function About() {
 
                 <FadeIn>
                     <p className="font-display text-2xl leading-relaxed text-paper md:text-4xl">
-                        I'm a Computer Science student focused on building production-ready
+                        I&apos;m a Computer Science student focused on building production-ready
                         software that combines thoughtful engineering, clean architecture,
                         and modern user experiences.
                     </p>
 
                     <p className="mt-8 max-w-2xl text-base leading-8 text-ash">
-                        Over the last few years I've worked on full-stack applications,
+                        Over the last few years I&apos;ve worked on full-stack applications,
                         Spring Boot backend systems, AI-assisted solutions, and computer
                         vision projects. I enjoy designing software that is maintainable,
                         scalable, and solves real problems instead of being limited to
@@ -30,7 +30,7 @@ export function About() {
                     </p>
 
                     <p className="mt-6 max-w-2xl text-base leading-8 text-ash">
-                        I'm currently strengthening my backend engineering skills while
+                        I&apos;m currently strengthening my backend engineering skills while
                         exploring modern frontend technologies to become a well-rounded
                         software engineer.
                     </p>

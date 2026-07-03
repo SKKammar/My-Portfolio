@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
+import { createServerSupabaseClient, createPublicSupabaseClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
   const supabase = await createServerSupabaseClient();
@@ -34,9 +34,9 @@ export async function DELETE(request: Request) {
 }
 
 export async function GET() {
-  // Public read — respects the RLS "Public read access" policy, so this is
-  // safe to call without an auth check.
-  const supabase = await createServerSupabaseClient();
+  // Public read — now genuinely respects the RLS "Public read access"
+  // policy, since this uses the anon key rather than the service role key.
+  const supabase = await createPublicSupabaseClient();
   const { data, error } = await supabase.from('projects').select('*').order('year', { ascending: false });
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ projects: data });

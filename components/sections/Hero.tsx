@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight, Download } from 'lucide-react';
+import { PendulumSceneClient } from '@/components/PendulumSceneClient';
 
 export function Hero() {
     return (
@@ -14,6 +15,9 @@ export function Hero() {
                 <div className="absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-white/5 blur-[180px]" />
 
             </div>
+
+            {/* 3D pendulum/clock scene — was built but never rendered before */}
+            <PendulumSceneClient />
 
             <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col">
 
@@ -36,16 +40,16 @@ export function Hero() {
 
                 <div className="mt-12 flex flex-wrap gap-4">
 
-                    <button
+                    <a
                         href="#projects"
                         className="group inline-flex items-center rounded-xl bg-paper px-6 py-3 text-sm font-medium text-ink transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                     >
                         View Projects
 
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </button>
+                    </a>
 
-                    <button
+                    <a
                         href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -53,7 +57,7 @@ export function Hero() {
                     >
                         <Download className="mr-2 h-4 w-4" />
                         Resume
-                    </button>
+                    </a>
 
                 </div>
 
