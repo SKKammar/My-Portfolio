@@ -1,3 +1,5 @@
+'use client';
+
 import { Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { FadeIn } from '@/components/ui/FadeIn';
