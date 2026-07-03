@@ -7,10 +7,8 @@ import { GithubIcon } from '@/components/icons/BrandIcons';
 
 export function ProjectCard({
                                 project,
-                                featured = false,
                             }: {
     project: Project;
-    featured?: boolean;
 }) {
     return (
         <Card

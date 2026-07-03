@@ -55,7 +55,7 @@ export async function Projects() {
             <div className="mt-12 space-y-8">
                 {featured.map((project, idx) => (
                     <FadeIn key={project.id} delay={idx * 150}>
-                        <ProjectCard project={project} featured />
+                        <ProjectCard project={project} />
                     </FadeIn>
                 ))}
             </div>
