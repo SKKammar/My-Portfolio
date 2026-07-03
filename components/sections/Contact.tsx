@@ -1,5 +1,3 @@
-import { Mail } from 'lucide-react';
-
 import { FadeIn } from '@/components/ui/FadeIn';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
@@ -27,14 +25,6 @@ export function Contact() {
                   internships, and exciting projects where I can contribute while
                   continuing to grow as an engineer.
                 </p>
-                
-                <div className="flex items-center gap-3 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-sm text-green-400 backdrop-blur-md">
-                    <span className="relative flex h-2 w-2">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-                    </span>
-                    Open to Work (Available Now)
-                </div>
             </div>
 
             <ContactForm />
@@ -42,8 +32,6 @@ export function Contact() {
             <div className="mt-12 pt-12 border-t border-white/10 flex flex-wrap gap-4 items-center">
               <span className="text-sm text-neutral-500 mr-4">Or connect directly:</span>
               <Button
-                  href="mailto:santoshkkammar16@gmail.com"
-                  variant="secondary"
                   href="https://github.com/SKKammar"
                   target="_blank"
                   rel="noopener noreferrer"

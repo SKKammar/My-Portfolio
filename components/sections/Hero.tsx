@@ -1,10 +1,10 @@
 'use client';
 
 import { ArrowRight, Download } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { StatCard } from '@/components/ui/StatCard';
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
@@ -15,7 +15,7 @@ const containerVariants = {
     }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
     show: { 
         opacity: 1, 
