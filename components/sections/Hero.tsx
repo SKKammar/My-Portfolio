@@ -57,7 +57,7 @@ export function Hero() {
                     <motion.div variants={itemVariants}>
                         <p className="mt-10 max-w-2xl text-base leading-relaxed text-neutral-400 md:text-lg">
                             Building scalable backend systems, modern web applications, and
-                            AI-powered solutions using Spring Boot, Next.js, TypeScript and Java.
+                            Artificial Intelligence-powered solutions using Spring Boot, Next.js, TypeScript and Java.
                             I enjoy transforming complex ideas into clean, production-ready
                             software.
                         </p>

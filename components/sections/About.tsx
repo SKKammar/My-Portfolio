@@ -47,7 +47,7 @@ export function About() {
                                 </p>
 
                                 <h3 className="mt-2 text-xl tracking-tight text-white">
-                                    B.E. Computer Science
+                                    Bachelor of Engineering in Computer Science
                                 </h3>
 
                                 <p className="mt-2 text-sm leading-relaxed text-neutral-400">
@@ -61,7 +61,7 @@ export function About() {
                                 </p>
 
                                 <p className="mt-2 text-sm leading-relaxed text-neutral-400">
-                                    Backend Engineering, Full Stack Development, AI Applications
+                                    Backend Engineering, Full Stack Development, Artificial Intelligence Applications
                                 </p>
                             </div>
 
