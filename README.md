@@ -1,4 +1,4 @@
-# Tick Tock — Santosh K Kammar's Portfolio
+# Santosh K Kammar's Portfolio
 
 A personal developer portfolio built with **Next.js 15**, **React 19**, and **Tailwind v4**, featuring a custom 3D pendulum clock hero scene and a hidden, Supabase-backed admin panel for managing projects — no public sign-up, one admin account only.
 
