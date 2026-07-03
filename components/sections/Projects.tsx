@@ -53,8 +53,8 @@ export async function Projects() {
             </FadeIn>
 
             <div className="mt-12 space-y-8">
-                {featured.map((project) => (
-                    <FadeIn key={project.id}>
+                {featured.map((project, idx) => (
+                    <FadeIn key={project.id} delay={idx * 150}>
                         <ProjectCard project={project} featured />
                     </FadeIn>
                 ))}
@@ -63,14 +63,14 @@ export async function Projects() {
             {others.length > 0 && (
                 <>
                     <FadeIn>
-                        <h3 className="mt-24 text-sm uppercase tracking-[0.25em] text-fog">
+                        <h3 className="mt-24 text-sm uppercase tracking-[0.25em] text-neutral-500">
                             More Projects
                         </h3>
                     </FadeIn>
 
                     <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-                        {others.map((project) => (
-                            <FadeIn key={project.id}>
+                        {others.map((project, idx) => (
+                            <FadeIn key={project.id} delay={idx * 150}>
                                 <ProjectCard project={project} />
                             </FadeIn>
                         ))}

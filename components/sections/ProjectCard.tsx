@@ -15,60 +15,35 @@ export function ProjectCard({
 }) {
     return (
         <Card
-            className={`group overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-white/20 ${
-                featured ? 'p-0' : 'p-0'
-            }`}
+            className="group flex flex-col p-8 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
         >
-            <div
-                className={`grid ${
-                    featured ? 'lg:grid-cols-[1.15fr_0.85fr]' : 'grid-cols-1'
-                }`}
-            >
-                <div className="relative aspect-[16/9] overflow-hidden bg-ink-card">
-                    {project.coverImage ? (
-                        <Image
-                            src={project.coverImage}
-                            alt={project.title}
-                            fill
-                            priority={featured}
-                            className="object-cover transition duration-700 group-hover:scale-105"
-                        />
-                    ) : (
-                        <div className="flex h-full items-center justify-center text-sm text-fog">
-                            Project Preview
-                        </div>
-                    )}
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent opacity-80" />
-                </div>
-
-                <div className="flex flex-col p-8">
+            <div className="flex flex-col h-full">
                     <div className="mb-6 flex items-center gap-3">
                         {project.year && (
-                            <span className="text-xs uppercase tracking-[0.18em] text-fog">
+                            <span className="text-xs uppercase tracking-[0.18em] text-neutral-500">
                 {project.year}
               </span>
                         )}
 
                         {project.category && (
-                            <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-fog">
+                            <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-neutral-500">
                 {project.category}
               </span>
                         )}
                     </div>
 
-                    <h3 className="font-display text-3xl text-paper">
+                    <h3 className="font-display tracking-tight text-3xl text-white">
                         {project.title}
                     </h3>
 
                     {project.subtitle && (
-                        <p className="mt-3 text-fog">
+                        <p className="mt-3 text-neutral-500">
                             {project.subtitle}
                         </p>
                     )}
 
                     {project.description && (
-                        <p className="mt-6 leading-7 text-ash">
+                        <p className="mt-6 leading-7 text-neutral-400">
                             {project.description}
                         </p>
                     )}
@@ -87,7 +62,7 @@ export function ProjectCard({
                                 href={project.githubUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-paper transition hover:text-white"
+                                className="inline-flex items-center gap-2 text-sm text-white transition hover:text-neutral-300"
                             >
                                 <GithubIcon size={16} />
                                 Github
@@ -99,14 +74,13 @@ export function ProjectCard({
                                 href={project.liveUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-paper transition hover:text-white"
+                                className="inline-flex items-center gap-2 text-sm text-white transition hover:text-neutral-300"
                             >
                                 Live Demo
                                 <ArrowUpRight size={16} />
                             </a>
                         )}
                     </div>
-                </div>
             </div>
         </Card>
     );

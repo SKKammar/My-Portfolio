@@ -7,29 +7,34 @@ import { Projects } from '@/components/sections/Projects';
 import { Skills } from '@/components/sections/Skills';
 import { GithubSection } from '@/components/sections/GitHub';
 import { Contact } from '@/components/sections/Contact';
+import { SpaceBackground } from '@/components/SpaceBackground';
 
 export default function Page() {
   return (
       <>
-        <Navbar />
+        <SpaceBackground />
+        
+        <div className="relative z-10">
+          <Navbar />
 
-        <main className="overflow-x-hidden">
+          <main className="overflow-x-hidden">
 
-          <Hero />
+            <Hero />
 
-          <About />
+            <About />
 
-          <Projects />
+            <Projects />
 
-          <Skills />
+            <Skills />
 
-          <GithubSection />
+            <GithubSection />
 
-          <Contact />
+            <Contact />
 
-        </main>
+          </main>
 
-        <Footer />
+          <Footer />
+        </div>
       </>
   );
 }

@@ -15,13 +15,13 @@ type ButtonProps = {
 
 const variants = {
   primary:
-      'bg-paper text-ink hover:-translate-y-1 hover:shadow-xl hover:shadow-white/10',
+      'bg-white text-black hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]',
 
   secondary:
-      'border border-ink-border bg-white/5 text-paper backdrop-blur hover:border-white/20 hover:-translate-y-1',
+      'border border-white/10 bg-black/40 text-white backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]',
 
   ghost:
-      'text-paper hover:bg-white/5',
+      'text-white hover:bg-white/10',
 };
 
 export function Button({

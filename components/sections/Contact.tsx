@@ -16,11 +16,11 @@ export function Contact() {
 
           <div className="mt-10 max-w-3xl">
 
-            <h2 className="font-display text-4xl leading-tight text-paper md:text-6xl">
+            <h2 className="font-display tracking-tight text-4xl leading-tight text-white md:text-6xl">
               Let&apos;s build something meaningful together.
             </h2>
 
-            <p className="mt-8 max-w-2xl text-base leading-8 text-ash">
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-neutral-400">
               I&apos;m currently looking for software engineering opportunities,
               internships, and exciting projects where I can contribute while
               continuing to grow as an engineer.
