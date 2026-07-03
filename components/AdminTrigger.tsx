@@ -1,29 +1,38 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LoginModal } from './LoginModal';
 
+const SECRET_SEQUENCE = ['s', 'a', 'n', 't', 'u'];
+
 export function AdminTrigger() {
-  const [clicks, setClicks] = useState(0);
   const [showLogin, setShowLogin] = useState(false);
-  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleClick = () => {
-    const next = clicks + 1;
-    setClicks(next);
-    if (next === 3) {
-      setShowLogin(true);
-      setClicks(0);
-    }
-    if (resetTimer.current) clearTimeout(resetTimer.current);
-    resetTimer.current = setTimeout(() => setClicks(0), 2000);
-  };
+  useEffect(() => {
+    let currentIndex = 0;
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if typing in an input or textarea
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+          currentIndex = 0;
+          return;
+      }
 
-  return (
-    <>
-      <button onClick={handleClick} className="opacity-50 hover:opacity-100 transition font-sans text-xs">
-        © 2026 Santosh K Kammar
-      </button>
-      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
-    </>
-  );
+      if (e.key.toLowerCase() === SECRET_SEQUENCE[currentIndex]) {
+        currentIndex++;
+        if (currentIndex === SECRET_SEQUENCE.length) {
+          setShowLogin(true);
+          currentIndex = 0;
+        }
+      } else {
+        currentIndex = 0;
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  if (!showLogin) return null;
+
+  return <LoginModal onClose={() => setShowLogin(false)} />;
 }

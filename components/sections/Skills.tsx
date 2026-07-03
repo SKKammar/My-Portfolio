@@ -110,12 +110,15 @@ function OrbitNode({ group }: { group: typeof skillGroups[0] }) {
                         <motion.div
                             key={item.name}
                             initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
-                            animate={{ opacity: 1, x, y, scale: 1 }}
+                            animate={{ opacity: 1, x, y: [y, y - 5, y], scale: 1 }}
                             exit={{ opacity: 0, x: 0, y: 0, scale: 0 }}
-                            transition={{ type: "spring", stiffness: 200, damping: 15, delay: i * 0.05 }}
+                            transition={{
+                                default: { type: "spring", stiffness: 200, damping: 15, delay: i * 0.05 },
+                                y: { repeat: Infinity, duration: 3 + i * 0.5, ease: "easeInOut" }
+                            }}
                             className="absolute hidden md:flex flex-col items-center justify-center px-4 py-2 rounded-xl border border-white/10 bg-black/80 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] whitespace-nowrap z-20 group-hover:z-30"
                             style={{ 
-                                boxShadow: `0 0 15px ${group.color.replace('1)', '0.15)')}`
+                                boxShadow: `0 0 20px ${group.color.replace('1)', '0.3)')}`
                             }}
                         >
                             <span className="text-xs font-medium text-white tracking-tight">{item.name}</span>

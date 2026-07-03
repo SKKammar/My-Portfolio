@@ -21,7 +21,7 @@ export interface Project {
 export const placeholderProjects: Project[] = [
   {
     id: 'my-portfolio',
-    title: 'Tick Tock Portfolio',
+    title: 'Santosh K Kammar Portfolio',
     subtitle: 'Cinematic 3D portfolio with a hidden CMS',
     description:
         'A personal portfolio built with Next.js 15 and React 19, featuring a custom 3D pendulum clock hero scene rendered with react-three-fiber and a hidden, Supabase-backed admin panel for managing projects.',

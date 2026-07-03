@@ -11,16 +11,23 @@ const links = [
 ];
 
 export function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState('');
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [nameVisible, setNameVisible] = useState(false);
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 30);
+        const heroName = document.getElementById('hero-name');
+        if (!heroName) return;
 
-        window.addEventListener('scroll', onScroll);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setNameVisible(!entry.isIntersecting);
+            },
+            { threshold: 0 }
+        );
 
-        return () => window.removeEventListener('scroll', onScroll);
+        observer.observe(heroName);
+        return () => observer.disconnect();
     }, []);
 
     // Lock body scroll while the mobile menu is open
@@ -56,16 +63,12 @@ export function Navbar() {
 
     return (
         <header
-            className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-                scrolled
-                    ? 'backdrop-blur-xl bg-ink/75 border-b border-white/10'
-                    : 'bg-transparent'
-            }`}
+            className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-transparent`}
         >
             <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-12">
                 <a
                     href="#"
-                    className="font-display text-lg italic text-paper transition-opacity hover:opacity-80"
+                    className={`font-display text-lg italic text-paper transition-all duration-500 hover:opacity-80 ${nameVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
                 >
                     Santosh K Kammar
                 </a>
