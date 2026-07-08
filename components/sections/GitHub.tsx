@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/Card';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Rule } from '@/components/ui/Rule';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Tag } from '@/components/ui/Tag';
 import { GithubIcon } from '@/components/icons/BrandIcons';
 
 type GithubRepo = {
@@ -15,13 +16,51 @@ type GithubRepo = {
   forks_count: number;
   language: string | null;
   fork: boolean;
+  topics: string[];
+  pushed_at: string;
+  archived: boolean;
+  private: boolean;
 };
+
+const LANGUAGE_COLORS: Record<string, string> = {
+  JavaScript: '#f1e05a',
+  TypeScript: '#3178c6',
+  Python: '#3572A5',
+  Java: '#b07219',
+  HTML: '#e34c26',
+  CSS: '#563d7c',
+  'Jupyter Notebook': '#DA5B0B',
+};
+
+function formatRelativeTime(dateStr: string) {
+  const date = new Date(dateStr);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  
+  if (diffInSeconds < 60) return `${diffInSeconds}s ago`;
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours}h ago`;
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 30) return `${diffInDays}d ago`;
+  const diffInMonths = Math.floor(diffInDays / 30);
+  if (diffInMonths < 12) return `${diffInMonths}mo ago`;
+  const diffInYears = Math.floor(diffInDays / 365);
+  return `${diffInYears}y ago`;
+}
 
 async function getRepos(): Promise<GithubRepo[]> {
   try {
+    const headers: Record<string, string> = { Accept: 'application/vnd.github+json' };
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
     const res = await fetch(
-        'https://api.github.com/users/SKKammar/repos?sort=updated&per_page=4',
+        'https://api.github.com/users/SKKammar/repos?sort=pushed&direction=desc&per_page=100',
         {
+          headers,
           next: {
             revalidate: 3600,
           },
@@ -33,9 +72,9 @@ async function getRepos(): Promise<GithubRepo[]> {
     const repos: GithubRepo[] = await res.json();
 
     return repos
-        .filter((repo) => !repo.fork)
-        .sort((a, b) => b.stargazers_count - a.stargazers_count)
-        .slice(0, 4);
+        .filter((repo) => !repo.fork && !repo.archived && !repo.private)
+        .sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
+        .slice(0, 6);
   } catch {
     return [];
   }
@@ -102,6 +141,14 @@ export async function GithubSection() {
                     </p>
                   )}
 
+                  {repo.topics && repo.topics.length > 0 && (
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {repo.topics.slice(0, 3).map((topic) => (
+                            <Tag key={topic}>{topic}</Tag>
+                        ))}
+                      </div>
+                  )}
+
                   <div className="mt-8 flex items-center gap-6 text-sm text-neutral-500">
 
                     {repo.stargazers_count > 0 && (
@@ -119,7 +166,17 @@ export async function GithubSection() {
                     )}
 
                     {repo.language && (
-                        <span>{repo.language}</span>
+                        <span className="flex items-center gap-2">
+                          <span
+                              className="h-3 w-3 rounded-full"
+                              style={{ backgroundColor: LANGUAGE_COLORS[repo.language] || '#8b8b8b' }}
+                          />
+                          {repo.language}
+                        </span>
+                    )}
+
+                    {repo.pushed_at && (
+                        <span>Updated {formatRelativeTime(repo.pushed_at)}</span>
                     )}
 
                   </div>

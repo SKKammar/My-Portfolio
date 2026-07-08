@@ -16,7 +16,7 @@ export async function submitContactForm(formData: FormData) {
         const cookieStore = await cookies();
         const supabase = createServerClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.SUPABASE_SERVICE_ROLE_KEY!, // Use service role for server-side insert to bypass RLS if needed, or anon key if public insert is allowed. Actually anon key + public insert is better.
+            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, // Deliberately using anon key, relying on RLS insert-only policy on messages
             {
                 cookies: {
                     getAll() {
