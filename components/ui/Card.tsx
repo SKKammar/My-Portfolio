@@ -53,8 +53,8 @@ export function Card({
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={handleMouseLeave}
             style={{
-                rotateX: isHovered ? rotateX : 0,
-                rotateY: isHovered ? rotateY : 0,
+                rotateX,
+                rotateY,
                 transformPerspective: 1000,
             }}
             className={`
