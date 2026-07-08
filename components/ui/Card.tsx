@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, MouseEvent, useState } from 'react';
+import { ReactNode, MouseEvent } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export function Card({
@@ -26,7 +26,6 @@ export function Card({
     const rotateX = useTransform(ySpring, [0, 1], [5, -5]);
     const rotateY = useTransform(xSpring, [0, 1], [-5, 5]);
 
-    const [isHovered, setIsHovered] = useState(false);
 
     function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
         const { left, top, width, height } = currentTarget.getBoundingClientRect();
@@ -41,7 +40,7 @@ export function Card({
     }
 
     function handleMouseLeave() {
-        setIsHovered(false);
+
         x.set(0.5);
         y.set(0.5);
     }
@@ -50,7 +49,6 @@ export function Card({
         <motion.div
             onClick={onClick}
             onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={handleMouseLeave}
             style={{
                 rotateX,
