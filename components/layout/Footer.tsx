@@ -10,6 +10,15 @@ export function Footer() {
 
             <Rule className="mb-10" />
 
+            <div className="mb-10 flex flex-col items-center justify-center text-center">
+                <p className="text-sm italic text-ash">
+                    &quot;The bottom is a great place to start.&quot;
+                </p>
+                <span className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-fog">
+                    — Unknown
+                </span>
+            </div>
+
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
 
                 <div className="space-y-2">
