@@ -22,7 +22,7 @@ export function Tag({
         text-fog
         backdrop-blur-sm
         transition-all
-        duration-300
+        duration-100 ease-out
         hover:border-white/20
         hover:bg-white/[0.08]
         hover:text-paper

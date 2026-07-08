@@ -98,7 +98,7 @@ export function Navbar() {
                             {link.label}
 
                             <span
-                                className={`absolute -bottom-2 left-0 h-px bg-paper transition-all duration-300 ${
+                                className={`absolute -bottom-2 left-0 h-px bg-paper transition-all duration-100 ease-out ${
                                     active === link.id ? 'w-full' : 'w-0'
                                 }`}
                             />

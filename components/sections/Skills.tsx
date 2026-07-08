@@ -97,7 +97,7 @@ export function Skills() {
                     >
                         {/* Dynamic Background Glow */}
                         <div 
-                            className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none"
+                            className="absolute inset-0 opacity-0 transition-opacity duration-100 ease-out group-hover:opacity-10 pointer-events-none"
                             style={{ background: `radial-gradient(circle at top right, ${group.color}, transparent 80%)` }}
                         />
                         

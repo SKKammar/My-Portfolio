@@ -40,7 +40,7 @@ export function Footer() {
                         href="https://github.com/SKKammar"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full border border-ink-border p-3 text-ash transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:text-paper"
+                        className="rounded-full border border-ink-border p-3 text-ash transition-all duration-100 ease-out hover:-translate-y-1 hover:border-white/20 hover:text-paper"
                     >
                         <GithubIcon size={18} />
                     </a>
@@ -49,14 +49,14 @@ export function Footer() {
                         href="https://www.linkedin.com/in/santosh-k-kammar-skk162005?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full border border-ink-border p-3 text-ash transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:text-paper"
+                        className="rounded-full border border-ink-border p-3 text-ash transition-all duration-100 ease-out hover:-translate-y-1 hover:border-white/20 hover:text-paper"
                     >
                         <LinkedinIcon size={18} />
                     </a>
 
                     <a
                         href="mailto:santoshkkammar16@gmail.com"
-                        className="rounded-full border border-ink-border p-3 text-ash transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:text-paper"
+                        className="rounded-full border border-ink-border p-3 text-ash transition-all duration-100 ease-out hover:-translate-y-1 hover:border-white/20 hover:text-paper"
                     >
                         <Mail size={18} />
                     </a>

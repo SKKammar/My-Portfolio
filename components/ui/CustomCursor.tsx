@@ -5,8 +5,6 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export function CustomCursor() {
     const [isVisible, setIsVisible] = useState(false);
-    const [isHovering, setIsHovering] = useState(false);
-
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
 
@@ -24,27 +22,10 @@ export function CustomCursor() {
             if (!isVisible) setIsVisible(true);
         };
 
-        const handleMouseOver = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            if (
-                target.tagName.toLowerCase() === 'a' ||
-                target.tagName.toLowerCase() === 'button' ||
-                target.closest('a') ||
-                target.closest('button') ||
-                target.style.cursor === 'pointer'
-            ) {
-                setIsHovering(true);
-            } else {
-                setIsHovering(false);
-            }
-        };
-
         window.addEventListener('mousemove', moveCursor);
-        window.addEventListener('mouseover', handleMouseOver);
 
         return () => {
             window.removeEventListener('mousemove', moveCursor);
-            window.removeEventListener('mouseover', handleMouseOver);
         };
     }, [cursorX, cursorY, isVisible]);
 

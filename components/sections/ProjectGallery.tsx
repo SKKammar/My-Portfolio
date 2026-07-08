@@ -26,7 +26,7 @@ export function ProjectGallery({ projects }: ProjectGalleryProps) {
                     <button
                         key={cat}
                         onClick={() => setActiveFilter(cat as string)}
-                        className={`rounded-full px-5 py-2 text-xs uppercase tracking-[0.15em] transition-all duration-300 ${
+                        className={`rounded-full px-5 py-2 text-xs uppercase tracking-[0.15em] transition-all duration-100 ease-out ${
                             activeFilter === cat 
                                 ? 'bg-white text-black font-semibold' 
                                 : 'border border-white/10 text-neutral-400 hover:border-white/30 hover:text-white'

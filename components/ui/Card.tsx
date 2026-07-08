@@ -67,7 +67,7 @@ export function Card({
                 bg-black/40
                 backdrop-blur-md
                 transition-all
-                duration-500
+                duration-100 ease-out
                 hover:-translate-y-1
                 hover:border-white/20
                 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]
@@ -77,7 +77,7 @@ export function Card({
             `}
         >
             <motion.div
-                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-100 ease-out group-hover:opacity-100 z-0"
                 style={{
                     background: useMotionTemplate`
                         radial-gradient(

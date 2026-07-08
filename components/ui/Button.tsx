@@ -45,7 +45,7 @@ export function Button({
     text-sm
     font-medium
     transition-all
-    duration-300
+    duration-100 ease-out
     disabled:pointer-events-none
     disabled:opacity-50
     ${variants[variant]}

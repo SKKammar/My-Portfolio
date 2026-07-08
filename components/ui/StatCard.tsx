@@ -18,7 +18,7 @@ export function StatCard({ value, countEnd, countDecimals = 0, countSuffix = '',
         : value;
 
     return (
-        <Card className="flex flex-col justify-center p-6 transition-all duration-300 hover:border-white/20 hover:bg-white/5">
+        <Card className="flex flex-col justify-center p-6 transition-all duration-100 ease-out hover:-translate-y-1 hover:border-white/20 hover:shadow-lg hover:bg-white/5">
             <div ref={ref} className="font-display text-2xl tracking-tight text-white md:text-3xl">
                 {displayValue}
             </div>
