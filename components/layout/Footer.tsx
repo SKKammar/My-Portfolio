@@ -1,7 +1,6 @@
 import { Mail } from 'lucide-react';
 
 import { Rule } from '@/components/ui/Rule';
-import { AdminTrigger } from '@/components/AdminTrigger';
 import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
 
 export function Footer() {
@@ -22,9 +21,6 @@ export function Footer() {
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
 
                 <div className="space-y-2">
-
-                    <AdminTrigger />
-
                     <p className="text-sm leading-7 text-ash">
                         Designed & Developed by
                         <span className="ml-2 text-paper">
