@@ -43,7 +43,7 @@ export async function Projects() {
     return (
         <section
             id="projects"
-            className="mx-auto max-w-7xl px-6 py-16 md:py-20 md:px-12"
+            className="mx-auto max-w-7xl px-4 py-12 md:py-20 md:px-12"
         >
             <FadeIn>
                 <SectionHeading>Featured Projects</SectionHeading>

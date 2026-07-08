@@ -30,7 +30,7 @@ export function Hero() {
     const opacityText = useTransform(scrollY, [0, 400], [1, 0]);
 
     return (
-        <section className="relative flex min-h-screen items-center overflow-hidden px-6 md:px-12">
+        <section className="relative flex min-h-screen items-center overflow-hidden px-4 md:px-12">
 
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute left-1/2 top-32 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-white/5 blur-[180px]" />
@@ -47,7 +47,7 @@ export function Hero() {
                     animate="show"
                 >
                     <motion.div variants={itemVariants}>
-                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[0.9] font-light text-6xl sm:text-7xl md:text-[8rem] lg:text-[9rem]">
+                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[0.9] font-light text-5xl sm:text-7xl md:text-[8rem] lg:text-[9rem]">
                             Santosh
                             <br />
                             <span className="italic">Kammar</span>
@@ -66,21 +66,21 @@ export function Hero() {
                     <motion.div variants={itemVariants} className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
                         <div className="flex flex-wrap gap-4">
                             <a
-                                href="#projects"
-                                className="group inline-flex items-center rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
-                            >
-                                View Projects
-                                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                            </a>
-
-                            <a
                                 href="https://github.com/SKKammar/My-Portfolio/raw/master/public/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center rounded-xl border border-white/10 bg-black/40 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                                className="inline-flex items-center rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold text-white transition-all duration-100 ease-out hover:-translate-y-1 hover:bg-blue-700 hover:shadow-lg"
                             >
                                 <Download className="mr-2 h-4 w-4" />
                                 Resume
+                            </a>
+
+                            <a
+                                href="#projects"
+                                className="group inline-flex items-center rounded-xl border border-white/20 bg-transparent px-6 py-3 text-sm font-medium text-white transition-all duration-100 ease-out hover:-translate-y-1 hover:bg-white/5 hover:shadow-lg"
+                            >
+                                View Projects
+                                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-100 ease-out group-hover:translate-x-1" />
                             </a>
                         </div>
                     </motion.div>

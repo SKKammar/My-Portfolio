@@ -20,25 +20,18 @@ export interface Project {
 
 export const placeholderProjects: Project[] = [
   {
-    id: 'my-portfolio',
-    title: 'Santosh K Kammar Portfolio',
-    subtitle: 'Cinematic 3D portfolio with a hidden CMS',
-    description:
-        'A personal portfolio built with Next.js 15 and React 19, featuring a custom 3D pendulum clock hero scene rendered with react-three-fiber and a hidden, Supabase-backed admin panel for managing projects.',
-    coverImage: '/images/projects/my-portfolio.png',
-    technologies: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Tailwind CSS',
-      'Three.js',
-      'Supabase',
-    ],
+    id: 'dognose-scanner',
+    title: 'DogNose ID System',
+    subtitle: 'Biometric identification system for dogs',
+    description: 'A unique biometric scanner backend that uses canine nose prints for reliable identification, similar to human fingerprints. Built with advanced computer vision techniques and a scalable backend architecture.',
+    coverImage: '/images/projects/dognose.png',
+    technologies: ['Python', 'OpenCV', 'PyTorch', 'Spring Boot'],
     liveUrl: null,
-    githubUrl: 'https://github.com/SKKammar/My-Portfolio',
+    githubUrl: null,
     year: 2026,
     featured: true,
-    category: 'Full-Stack',
+    category: 'Backend / AI',
+    topMetric: { value: '99%', label: 'Accuracy' },
   },
   {
     id: 'inventory-system',
@@ -66,6 +59,27 @@ export const placeholderProjects: Project[] = [
       approach: 'I designed a distributed inventory backend using Spring Boot 3 and Java 17. To prevent overselling, I implemented optimistic locking at the database level and a robust JWT-based RBAC system to secure endpoints.',
       results: ['Load tested at ~9,000 concurrent requests', 'Achieved 126 req/s throughput', 'Maintained 0% error rate under peak load']
     }
+  },
+  {
+    id: 'my-portfolio',
+    title: 'Santosh K Kammar Portfolio',
+    subtitle: 'Cinematic 3D portfolio with a hidden CMS',
+    description:
+        'A personal portfolio built with Next.js 15 and React 19, featuring a custom 3D pendulum clock hero scene rendered with react-three-fiber and a hidden, Supabase-backed admin panel for managing projects.',
+    coverImage: '/images/projects/my-portfolio.png',
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Three.js',
+      'Supabase',
+    ],
+    liveUrl: null,
+    githubUrl: 'https://github.com/SKKammar/My-Portfolio',
+    year: 2026,
+    featured: true,
+    category: 'Full-Stack',
   },
   {
     id: 'inspectai-anomaly-detection',

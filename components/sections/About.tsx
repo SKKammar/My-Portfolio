@@ -6,7 +6,7 @@ export function About() {
     return (
         <section
             id="about"
-            className="mx-auto max-w-7xl px-6 py-16 md:py-20 md:px-12"
+            className="mx-auto max-w-7xl px-4 py-12 md:py-20 md:px-12"
         >
             <FadeIn>
                 <SectionHeading>About</SectionHeading>
@@ -21,19 +21,20 @@ export function About() {
                         and modern user experiences.
                     </p>
 
-                    <p className="mt-8 max-w-2xl text-base leading-relaxed text-neutral-400">
-                        Over the last few years I&apos;ve worked on full-stack applications,
-                        Spring Boot backend systems, AI-assisted solutions, and computer
-                        vision projects. I enjoy designing software that is maintainable,
-                        scalable, and solves real problems instead of being limited to
-                        classroom demonstrations.
-                    </p>
-
-                    <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-400">
-                        I&apos;m currently strengthening my backend engineering skills while
-                        exploring modern frontend technologies to become a well-rounded
-                        software engineer.
-                    </p>
+                    <ul className="mt-8 space-y-4 max-w-2xl text-base leading-relaxed text-neutral-400">
+                        <li className="flex gap-3">
+                            <span className="text-blue-500 font-bold">•</span>
+                            <span><strong>Current Status:</strong> Final Year CS Student</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="text-blue-500 font-bold">•</span>
+                            <span><strong>Tech Stack:</strong> Java, Python, Next.js, Spring Boot</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="text-blue-500 font-bold">•</span>
+                            <span><strong>Seeking:</strong> Backend and Full-Stack Engineering roles</span>
+                        </li>
+                    </ul>
                 </FadeIn>
 
                 <FadeIn>
