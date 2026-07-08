@@ -47,13 +47,10 @@ export function Hero() {
                     animate="show"
                 >
                     <motion.div variants={itemVariants}>
-                        <p className="mb-6 font-display text-lg tracking-wide text-neutral-300 md:text-xl">
-                            Hi this is Santosh, I am happy to see that you took your time to view my Portfolio.
-                        </p>
-                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[0.9] font-light text-5xl sm:text-7xl md:text-[8rem] lg:text-[9rem]">
-                            Santosh
+                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[1.1] font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+                            Hi this is <span className="italic font-normal">Santosh</span>,
                             <br />
-                            <span className="italic">Kammar</span>
+                            I am happy to see that you took your time to view my Portfolio.
                         </h1>
                     </motion.div>
 
