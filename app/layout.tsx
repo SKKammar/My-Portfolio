@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { MotionConfig } from 'framer-motion';
 import { CustomCursor } from '@/components/ui/CustomCursor';
-import { EasterEgg } from '@/components/EasterEgg';
 
 import './globals.css';
 
@@ -89,7 +88,6 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <MotionConfig reducedMotion="user">
           <CustomCursor />
-          <EasterEgg />
           {children}
         </MotionConfig>
 

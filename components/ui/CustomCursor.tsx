@@ -52,20 +52,15 @@ export function CustomCursor() {
 
     return (
         <motion.div
-            className="pointer-events-none fixed left-0 top-0 z-[100] mix-blend-difference hidden md:block"
+            className="pointer-events-none fixed left-0 top-0 z-0 hidden md:block"
             style={{
                 x: cursorXSpring,
                 y: cursorYSpring,
                 translateX: '-50%',
                 translateY: '-50%',
             }}
-            animate={{
-                scale: isHovering ? 2.5 : 1,
-                opacity: isHovering ? 0.8 : 0.5,
-            }}
-            transition={{ duration: 0.2 }}
         >
-            <div className="h-6 w-6 rounded-full border-[1.5px] border-white bg-transparent" />
+            <div className="h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
         </motion.div>
     );
 }
