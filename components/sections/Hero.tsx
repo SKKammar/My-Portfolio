@@ -47,6 +47,9 @@ export function Hero() {
                     animate="show"
                 >
                     <motion.div variants={itemVariants}>
+                        <p className="mb-6 font-display text-lg tracking-wide text-neutral-300 md:text-xl">
+                            Hi this is Santosh, I am happy to see that you took your time to view my Portfolio.
+                        </p>
                         <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[0.9] font-light text-5xl sm:text-7xl md:text-[8rem] lg:text-[9rem]">
                             Santosh
                             <br />
