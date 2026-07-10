@@ -68,18 +68,18 @@ export function Contact() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className={`group relative flex flex-col items-center justify-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-6 backdrop-blur-md transition-colors duration-100 ease-out ${method.color}`}
+                  className={`group relative flex flex-col items-center justify-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 sm:p-6 backdrop-blur-md transition-colors duration-100 ease-out ${method.color}`}
                 >
                   <motion.div 
-                    className={`flex h-16 w-16 items-center justify-center rounded-full bg-white/5 transition-colors duration-100 ease-out ${method.iconBg}`}
+                    className={`flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white/5 transition-colors duration-100 ease-out ${method.iconBg}`}
                     whileHover={{ scale: 1.15 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
-                    <method.icon size={28} className={`text-neutral-400 transition-colors duration-100 ease-out ${method.iconColor}`} />
+                    <method.icon size={24} className={`text-neutral-400 transition-colors duration-100 ease-out ${method.iconColor}`} />
                   </motion.div>
                   <div className="text-center">
-                    <h3 className="font-medium text-lg text-white">{method.name}</h3>
-                    <p className="mt-1 text-sm text-neutral-400">{method.value}</p>
+                    <h3 className="font-medium text-base sm:text-lg text-white">{method.name}</h3>
+                    <p className="mt-1 text-xs sm:text-sm text-neutral-400">{method.value}</p>
                   </div>
                 </motion.a>
               ))}
