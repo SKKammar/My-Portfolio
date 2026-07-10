@@ -10,6 +10,7 @@ export function Contact() {
   const contactMethods = [
     {
       name: 'Email',
+      value: 'santoshkkammar16@gmail.com',
       href: 'mailto:santoshkkammar16@gmail.com',
       icon: Mail,
       color: 'hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]',
@@ -18,6 +19,7 @@ export function Contact() {
     },
     {
       name: 'GitHub',
+      value: '@SKKammar',
       href: 'https://github.com/SKKammar',
       icon: GithubIcon,
       color: 'hover:border-white/50 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]',
@@ -26,6 +28,7 @@ export function Contact() {
     },
     {
       name: 'LinkedIn',
+      value: 'Santosh K Kammar',
       href: 'https://www.linkedin.com/in/santosh-k-kammar-skk162005',
       icon: LinkedinIcon,
       color: 'hover:border-blue-400/50 hover:shadow-[0_0_30px_rgba(96,165,250,0.2)]',
@@ -65,16 +68,19 @@ export function Contact() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className={`group relative flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-black/20 p-10 backdrop-blur-md transition-colors duration-100 ease-out ${method.color}`}
+                  className={`group relative flex flex-col items-center justify-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-6 backdrop-blur-md transition-colors duration-100 ease-out ${method.color}`}
                 >
                   <motion.div 
-                    className={`flex h-20 w-20 items-center justify-center rounded-full bg-white/5 transition-colors duration-100 ease-out ${method.iconBg}`}
+                    className={`flex h-16 w-16 items-center justify-center rounded-full bg-white/5 transition-colors duration-100 ease-out ${method.iconBg}`}
                     whileHover={{ scale: 1.15 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
-                    <method.icon size={32} className={`text-neutral-400 transition-colors duration-100 ease-out ${method.iconColor}`} />
+                    <method.icon size={28} className={`text-neutral-400 transition-colors duration-100 ease-out ${method.iconColor}`} />
                   </motion.div>
-                  <h3 className="font-medium text-lg text-white">{method.name}</h3>
+                  <div className="text-center">
+                    <h3 className="font-medium text-lg text-white">{method.name}</h3>
+                    <p className="mt-1 text-sm text-neutral-400">{method.value}</p>
+                  </div>
                 </motion.a>
               ))}
             </div>
