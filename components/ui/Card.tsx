@@ -62,7 +62,7 @@ export function Card({
                 rounded-2xl
                 border
                 border-white/10
-                bg-black/40
+                bg-black/20
                 backdrop-blur-md
                 transition-all
                 duration-100 ease-out

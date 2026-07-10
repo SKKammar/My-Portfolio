@@ -65,7 +65,7 @@ export function Contact() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className={`group relative flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-black/40 p-10 backdrop-blur-md transition-colors duration-100 ease-out ${method.color}`}
+                  className={`group relative flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-black/20 p-10 backdrop-blur-md transition-colors duration-100 ease-out ${method.color}`}
                 >
                   <motion.div 
                     className={`flex h-20 w-20 items-center justify-center rounded-full bg-white/5 transition-colors duration-100 ease-out ${method.iconBg}`}

@@ -22,7 +22,7 @@ export const placeholderProjects: Project[] = [
   {
     id: 'dognose-scanner',
     title: 'DogNose ID System',
-    subtitle: 'Biometric identification system for dogs',
+    subtitle: 'Biometric identification system for dogs (In Progress)',
     description: 'A unique biometric scanner backend that uses canine nose prints for reliable identification, similar to human fingerprints. Built with advanced computer vision techniques and a scalable backend architecture.',
     coverImage: '/images/projects/dognose.png',
     technologies: ['Python', 'OpenCV', 'PyTorch', 'Spring Boot'],
@@ -31,7 +31,7 @@ export const placeholderProjects: Project[] = [
     year: 2026,
     featured: true,
     category: 'Backend / AI',
-    topMetric: { value: '99%', label: 'Accuracy' },
+    topMetric: { value: 'WIP', label: 'Status' },
   },
   {
     id: 'inventory-system',

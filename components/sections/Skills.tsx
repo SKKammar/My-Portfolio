@@ -93,7 +93,7 @@ export function Skills() {
                         viewport={{ once: true, margin: "-10%" }}
                         transition={{ duration: 0.5, delay: i * 0.1 }}
                         whileHover={{ y: -5 }}
-                        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+                        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
                     >
                         {/* Dynamic Background Glow */}
                         <div 
