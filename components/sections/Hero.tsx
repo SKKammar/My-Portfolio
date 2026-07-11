@@ -46,9 +46,17 @@ export function Hero() {
                     initial="hidden"
                     animate="show"
                 >
-                    <motion.div variants={itemVariants}>
-                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[1.1] font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-                            Hi, this is <span className="italic font-normal">Santosh</span> Here
+                    <motion.div variants={itemVariants} className="flex flex-col gap-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md w-fit mb-2">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                            </span>
+                            <span className="text-xs font-medium tracking-widest text-neutral-300 uppercase">Welcome to my universe</span>
+                        </div>
+                        <h1 id="hero-name" className="font-display tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 leading-[1.1] font-light text-5xl sm:text-6xl md:text-7xl lg:text-8xl pb-2">
+                            Hi, this is <br className="hidden md:block" />
+                            <span className="italic font-normal bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Santosh</span> Here.
                         </h1>
                     </motion.div>
 
