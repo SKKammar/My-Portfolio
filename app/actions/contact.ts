@@ -1,6 +1,6 @@
 'use server';
 
-import { cookies } from 'next/headers';
+
 
 export async function submitContactForm(formData: FormData) {
     const name = formData.get('name') as string;
