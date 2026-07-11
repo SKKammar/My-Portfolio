@@ -65,7 +65,7 @@ export const placeholderProjects: Project[] = [
     title: 'Santosh K Kammar Portfolio',
     subtitle: 'Cinematic 3D portfolio with a hidden CMS',
     description:
-        'A personal portfolio built with Next.js 15 and React 19, featuring a custom 3D pendulum clock hero scene rendered with react-three-fiber and a hidden, Supabase-backed admin panel for managing projects.',
+        'A personal portfolio built with Next.js 15 and React 19, featuring a custom 3D pendulum clock hero scene rendered with react-three-fiber.',
     coverImage: '/images/projects/my-portfolio.png',
     technologies: [
       'Next.js',
@@ -73,7 +73,6 @@ export const placeholderProjects: Project[] = [
       'TypeScript',
       'Tailwind CSS',
       'Three.js',
-      'Supabase',
     ],
     liveUrl: null,
     githubUrl: 'https://github.com/SKKammar/My-Portfolio',

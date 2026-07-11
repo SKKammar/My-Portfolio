@@ -21,15 +21,12 @@ export function Footer() {
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
 
                 <div className="space-y-2">
-                    <p className="text-sm leading-7 text-ash">
-                        Designed & Developed by
-                        <span className="ml-2 text-paper">
-              Santosh K Kammar
-            </span>
+                    <p className="text-sm leading-7 text-paper">
+                        Santosh K Kammar
                     </p>
 
                     <p className="text-xs uppercase tracking-[0.2em] text-fog">
-                        Next.js • TypeScript • Tailwind CSS • Supabase
+                        Next.js • TypeScript • Tailwind CSS
                     </p>
 
                 </div>

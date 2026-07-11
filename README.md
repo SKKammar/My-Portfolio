@@ -1,6 +1,6 @@
 # Santosh K Kammar's Portfolio
 
-A personal developer portfolio built with **Next.js 15**, **React 19**, and **Tailwind v4**, featuring a premium **Deep Space Glassmorphism** aesthetic, interactive 3D starfield hero (`react-three-fiber`), and a hidden, Supabase-backed admin panel for managing projects.
+A personal developer portfolio built with **Next.js 15**, **React 19**, and **Tailwind v4**, featuring a premium **Deep Space Glassmorphism** aesthetic and an interactive 3D starfield hero (`react-three-fiber`).
 
 Design identity: dark, cinematic, monochrome — Playfair Display + Inter typography, with smooth Lenis scrolling, custom framer-motion animations, and a recurring glassy, hairline-rule motif throughout the UI.
 
@@ -11,7 +11,6 @@ Design identity: dark, cinematic, monochrome — Playfair Display + Inter typogr
 - **Deep Space 3D Hero** — cinematic parallax scrolling built with `react-three-fiber` and `framer-motion`
 - **Premium Motion System** — buttery smooth `Lenis` scrolling with centralized cubic-bezier easing and custom desktop cursors
 - **Interactive Case Studies** — projects support advanced layout filtering and detailed modal case studies with data visualizations
-- **Hidden Admin Panel** — triple-click the footer copyright to reveal a login modal; add projects straight to Supabase
 - **Fully responsive & Accessible** — full mobile support with respect for OS `prefers-reduced-motion` settings
 
 ---
@@ -24,7 +23,6 @@ Design identity: dark, cinematic, monochrome — Playfair Display + Inter typogr
 | Styling | Tailwind CSS v4, Glassmorphism |
 | Motion | Framer Motion, Lenis |
 | 3D | react-three-fiber, drei |
-| Backend / Auth | Supabase |
 | Language | TypeScript |
 
 ---
@@ -34,7 +32,6 @@ Design identity: dark, cinematic, monochrome — Playfair Display + Inter typogr
 ```
 my-portfolio/
 ├── app/
-│   ├── api/projects/route.ts   # protected POST/DELETE + public GET
 │   ├── globals.css             # design tokens (Tailwind v4 @theme)
 │   ├── layout.tsx              # fonts + metadata
 │   └── page.tsx                # assembles all sections
@@ -45,7 +42,7 @@ my-portfolio/
 │   ├── sections/
 │   │   ├── Hero.tsx
 │   │   ├── About.tsx
-│   │   ├── Projects.tsx        # server component, reads Supabase
+│   │   ├── Projects.tsx
 │   │   ├── ProjectCard.tsx
 │   │   ├── Skills.tsx
 │   │   ├── GitHub.tsx
@@ -57,16 +54,9 @@ my-portfolio/
 │   │   ├── FadeIn.tsx
 │   │   ├── Button.tsx
 │   │   └── Card.tsx
-│   ├── PendulumScene.tsx        # 3D pendulum, client-only
-│   ├── AdminTrigger.tsx         # triple-click footer copyright
-│   ├── LoginModal.tsx
-│   └── AdminForm.tsx
-├── data/projects.ts             # Project type + placeholder fallback data
-├── lib/supabase/
-│   ├── client.ts                # browser client (anon key)
-│   └── server.ts                # server client (service role key)
+│   └── SpaceBackground.tsx      # 3D starfield background
+├── data/projects.ts             # Project data & interface
 ├── public/images/projects/      # drop project cover images here
-├── .env.local.example
 └── package.json
 ```
 
@@ -82,13 +72,7 @@ cd My-Portfolio
 npm install
 ```
 
-### 2. Configure environment variables
-
-```bash
-cp .env.local.example .env.local
-```
-
-Fill in the four Supabase values (see setup below), then:
+### 2. Run the development server
 
 ```bash
 npm run dev
@@ -98,68 +82,41 @@ Visit `http://localhost:3000`.
 
 ---
 
-## Supabase Setup (one-time)
+## Project Workflow (How to Add Projects)
 
-1. **SQL Editor → New query** — create the table and lock it down:
+Since this portfolio runs on local data, managing projects is simple:
 
-```sql
-create table projects (
-  id text primary key,
-  title text not null,
-  subtitle text,
-  description text,
-  cover_image text,
-  technologies text[],
-  live_url text,
-  github_url text,
-  year int,
-  featured boolean default false,
-  category text,
-  created_at timestamp default now()
-);
-
-alter table projects enable row level security;
-create policy "Public read access" on projects for select using (true);
--- No public insert/update/delete policy — only the server-side API route,
--- using the service role key, can write.
-```
-
-2. **Authentication → Users → Add user** — create your one admin account (real email + password). There's no public registration page in this app.
-
-3. **Settings → API** — copy these four values into `.env.local`:
-
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY` — server-only, never exposed to the browser
-   - `ADMIN_EMAIL` — must exactly match the user created in step 2
-
----
-
-## Using the Admin Panel
-
-Triple-click the copyright text in the footer within 2 seconds → login modal appears → sign in with your admin credentials → add-project form appears.
-
-Projects save straight to Supabase and appear in the Projects section on the next page load (or immediately, since it's a server component re-fetching on each request).
+1. **Add Images**: Drop your project's cover image into the `public/images/projects/` directory.
+2. **Update Data**: Open `data/projects.ts` and add a new entry to the `placeholderProjects` array. 
+   - Follow the `Project` interface structure.
+   - Example:
+     ```typescript
+     {
+       id: 'my-new-project',
+       title: 'My New Project',
+       subtitle: 'A brief description',
+       description: 'Detailed explanation of the project.',
+       coverImage: '/images/projects/my-new-project.png',
+       technologies: ['Next.js', 'React'],
+       liveUrl: 'https://example.com',
+       githubUrl: 'https://github.com/username/repo',
+       year: 2026,
+       featured: true,
+       category: 'Full-Stack',
+     }
+     ```
+3. **Save**: The UI will automatically update. Featured projects will appear prominently in the gallery.
 
 ---
 
 ## Deploying to Vercel
 
-1. Push the repo to GitHub (already done if you're reading this on GitHub).
+1. Push the repo to GitHub.
 2. Import the repo into [Vercel](https://vercel.com/new).
 3. Framework preset: **Next.js** (auto-detected).
-4. Add the same four environment variables from `.env.local` under **Settings → Environment Variables** (Production + Preview).
-5. Deploy.
+4. Deploy.
 
 No other config needed — `next.config.ts` and `postcss.config.mjs` are already set up for the build.
-
----
-
-## Roadmap
-
-- [ ] Wire Supabase Storage for drag-and-drop cover image upload (currently `coverImage` is a plain text path — drop files manually into `public/images/projects/`)
-- [ ] Add an edit UI for existing projects (`DELETE` is already wired in the API route, just needs a button in `AdminForm.tsx`)
-- [ ] Swap the placeholder contact email for a real one before sharing this live
 
 ---
 
