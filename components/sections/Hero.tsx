@@ -48,9 +48,7 @@ export function Hero() {
                 >
                     <motion.div variants={itemVariants}>
                         <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[1.1] font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-                            Hi this is <span className="italic font-normal">Santosh</span>,
-                            <br />
-                            I am happy to see that you took your time to view my Portfolio.
+                            Hi, this is <span className="italic font-normal">Santosh</span> Here
                         </h1>
                     </motion.div>
 
