@@ -52,11 +52,11 @@ export function Hero() {
                                 <span className="animate-ping absolute inline-flex h-full w-full bg-white opacity-75"></span>
                                 <span className="relative inline-flex h-2 w-2 bg-white"></span>
                             </span>
-                            <span className="text-xs font-bold tracking-widest text-white uppercase">Player 1 // Online</span>
+                            <span className="text-xs font-bold tracking-widest text-white uppercase">Site is active</span>
                         </div>
                         <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[1.1] font-light text-5xl sm:text-6xl md:text-7xl lg:text-8xl pb-2">
                             Hi, this is <br className="hidden md:block" />
-                            <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 via-neutral-300 to-neutral-500">Santosh</span> Here.
+                            <span className="font-normal text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 via-neutral-300 to-neutral-500">Santosh</span> Here.
                         </h1>
                     </motion.div>
 
