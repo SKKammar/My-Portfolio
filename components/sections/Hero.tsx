@@ -47,16 +47,16 @@ export function Hero() {
                     animate="show"
                 >
                     <motion.div variants={itemVariants} className="flex flex-col gap-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md w-fit mb-2">
+                        <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-sm border border-white/20 bg-black/50 backdrop-blur-md w-fit mb-2 font-mono">
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full bg-white opacity-75"></span>
+                                <span className="relative inline-flex h-2 w-2 bg-white"></span>
                             </span>
-                            <span className="text-xs font-medium tracking-widest text-neutral-300 uppercase">Welcome to my universe</span>
+                            <span className="text-xs font-bold tracking-widest text-white uppercase">Player 1 // Online</span>
                         </div>
-                        <h1 id="hero-name" className="font-display tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 leading-[1.1] font-light text-5xl sm:text-6xl md:text-7xl lg:text-8xl pb-2">
+                        <h1 id="hero-name" className="font-display tracking-tighter text-white leading-[1.1] font-light text-5xl sm:text-6xl md:text-7xl lg:text-8xl pb-2">
                             Hi, this is <br className="hidden md:block" />
-                            <span className="italic font-normal bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Santosh</span> Here.
+                            <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 via-neutral-300 to-neutral-500">Santosh</span> Here.
                         </h1>
                     </motion.div>
 
