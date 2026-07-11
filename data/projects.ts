@@ -60,26 +60,7 @@ export const placeholderProjects: Project[] = [
       results: ['Load tested at ~9,000 concurrent requests', 'Achieved 126 req/s throughput', 'Maintained 0% error rate under peak load']
     }
   },
-  {
-    id: 'my-portfolio',
-    title: 'Santosh K Kammar Portfolio',
-    subtitle: 'Cinematic 3D portfolio with a hidden CMS',
-    description:
-        'A personal portfolio built with Next.js 15 and React 19, featuring a custom 3D pendulum clock hero scene rendered with react-three-fiber.',
-    coverImage: '/images/projects/my-portfolio.png',
-    technologies: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Tailwind CSS',
-      'Three.js',
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/SKKammar/My-Portfolio',
-    year: 2026,
-    featured: true,
-    category: 'Full-Stack',
-  },
+
   {
     id: 'inspectai-anomaly-detection',
     title: 'InspectAI',
