@@ -72,7 +72,7 @@ export function Hero() {
                     <motion.div variants={itemVariants} className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
                         <div className="flex flex-wrap gap-4">
                             <a
-                                href="https://github.com/SKKammar/My-Portfolio/raw/master/public/resume.pdf"
+                                href="https://drive.google.com/file/d/1Cja8DQr98w1S3KZ9VdRpD0rm3j00HDW2/view?usp=drive_link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold text-white transition-all duration-100 ease-out hover:-translate-y-1 hover:bg-blue-700 hover:shadow-lg"
