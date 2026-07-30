@@ -114,7 +114,7 @@ export function ProjectGallery({ projects }: ProjectGalleryProps) {
                                     </div>
                                 </div>
                             ) : (
-                                <p className="mt-10 text-neutral-400">Detailed case study coming soon.</p>
+                                <p className="mt-10 leading-7 text-neutral-300">{selectedProject.description}</p>
                             )}
                         </motion.div>
                     </div>
