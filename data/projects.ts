@@ -26,8 +26,8 @@ export const placeholderProjects: Project[] = [
     description: 'A unique biometric scanner backend that uses canine nose prints for reliable identification, similar to human fingerprints. Built with advanced computer vision techniques and a scalable backend architecture.',
     coverImage: '/images/projects/dognose.png',
     technologies: ['Python', 'OpenCV', 'PyTorch', 'Spring Boot'],
-    liveUrl: null,
-    githubUrl: null,
+    liveUrl: 'https://dognose.demo.com',
+    githubUrl: 'https://github.com/SKKammar/DogNose',
     year: 2026,
     featured: true,
     category: 'Backend / AI',
@@ -103,11 +103,12 @@ export const placeholderProjects: Project[] = [
     description: 'An AI-powered coding assistant built with Next.js 15 and TypeScript that uses a Socratic hint engine to guide users toward solutions rather than giving direct answers. It features a knowledge graph to visualize learning progress, conducts structured code reviews with severity tags, and integrates Supabase for auth/database and the Gemini API for AI generation.',
     coverImage: null,
     technologies: ['Next.js 15', 'TypeScript', 'Supabase', 'Gemini API'],
-    liveUrl: null,
-    githubUrl: null,
+    liveUrl: 'https://codementor.demo.com',
+    githubUrl: 'https://github.com/SKKammar/CodeMentor',
     year: 2026,
     featured: true,
-    category: 'Full Stack / AI'
+    category: 'Full Stack / AI',
+    topMetric: { value: 'WIP', label: 'Status' }
   },
   {
     id: 'pr-pilot',
@@ -116,11 +117,12 @@ export const placeholderProjects: Project[] = [
     description: 'A GitHub App that automatically reviews pull requests using the Gemini API, posting inline comments just like a human reviewer. It\'s engineered with a background task pattern to handle webhook timeouts, processes files concurrently to avoid API rate limits, and secures requests with HMAC-SHA256 verification—making it a robust, developer-friendly CI/CD addition.',
     coverImage: null,
     technologies: ['Node.js', 'GitHub Apps', 'Gemini API', 'CI/CD'],
-    liveUrl: null,
-    githubUrl: null,
+    liveUrl: 'https://pr-pilot.demo.com',
+    githubUrl: 'https://github.com/SKKammar/pr-pilot',
     year: 2026,
     featured: true,
-    category: 'CI/CD / Tooling'
+    category: 'CI/CD / Tooling',
+    topMetric: { value: 'WIP', label: 'Status' }
   },
   {
     id: 'secretshield',
