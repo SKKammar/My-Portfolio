@@ -90,7 +90,7 @@ export const placeholderProjects: Project[] = [
     coverImage: null,
     technologies: ['Python', 'FastAPI', 'Streamlit', 'Docker', 'MLOps'],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: 'https://github.com/SKKammar/ChurnOps',
     year: 2026,
     featured: true,
     category: 'MLOps',
@@ -132,7 +132,7 @@ export const placeholderProjects: Project[] = [
     coverImage: null,
     technologies: ['GitHub Actions', 'Security', 'CI/CD'],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: 'https://github.com/SKKammar/SecretShield',
     year: 2026,
     featured: true,
     category: 'Security'
