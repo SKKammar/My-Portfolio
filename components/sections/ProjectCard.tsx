@@ -78,17 +78,7 @@ export function ProjectCard({
                             </a>
                         )}
 
-                        {project.liveUrl && (
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-white transition hover:text-neutral-300"
-                            >
-                                Live Demo
-                                <ExternalLink size={16} />
-                            </a>
-                        )}
+
                     </div>
             </div>
         </Card>
