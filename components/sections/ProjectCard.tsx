@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react';
+
 
 import type { Project } from '@/data/projects';
 import { Card } from '@/components/ui/Card';
