@@ -13,7 +13,7 @@ export async function Projects() {
     return (
         <section
             id="projects"
-            className="mx-auto max-w-7xl px-4 py-12 md:py-20 md:px-12"
+            className="mx-auto max-w-7xl px-4 py-4 md:py-6 md:px-12"
         >
             <FadeIn>
                 <SectionHeading>Featured Projects</SectionHeading>
@@ -21,7 +21,7 @@ export async function Projects() {
 
             <ProjectGallery projects={projects} />
 
-            <Rule className="mt-16" />
+            <Rule className="mt-4" />
         </section>
     );
 }

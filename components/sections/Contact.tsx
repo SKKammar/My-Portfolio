@@ -40,7 +40,7 @@ export function Contact() {
   return (
       <section
           id="contact"
-          className="mx-auto max-w-7xl px-6 py-16 md:py-20 md:px-12"
+          className="mx-auto max-w-7xl px-6 py-4 md:py-6 md:px-12"
       >
         <FadeIn>
           <SectionHeading>Contact</SectionHeading>

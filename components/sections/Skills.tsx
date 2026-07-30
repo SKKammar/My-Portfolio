@@ -21,8 +21,7 @@ const skillGroups = [
         items: [
             { name: 'Spring Boot', context: 'Used in Inventory System, JWT auth' },
             { name: 'FastAPI', context: 'High-perf ML serving' },
-            { name: 'Node.js', context: 'Serverless Edge Functions' },
-            { name: 'Hibernate', context: 'ORM for Java apps' }
+            { name: 'Node.js', context: 'Serverless Edge Functions' }
         ],
     },
     {
@@ -31,8 +30,7 @@ const skillGroups = [
         items: [
             { name: 'Next.js', context: 'App Router & SSR' },
             { name: 'React', context: 'Component architecture' },
-            { name: 'Tailwind CSS', context: 'Utility-first styling' },
-            { name: 'Framer', context: 'Complex motion & physics' }
+            { name: 'Tailwind CSS', context: 'Utility-first styling' }
         ],
     },
     {
@@ -70,7 +68,7 @@ export function Skills() {
     return (
         <section
             id="skills"
-            className="mx-auto max-w-7xl px-6 py-16 md:py-20 md:px-12"
+            className="mx-auto max-w-7xl px-6 py-4 md:py-6 md:px-12"
         >
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -119,7 +117,7 @@ export function Skills() {
                 ))}
             </div>
 
-            <Rule className="mt-20" />
+            <Rule className="mt-4" />
         </section>
     );
 }
