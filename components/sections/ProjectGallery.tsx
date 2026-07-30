@@ -81,41 +81,7 @@ export function ProjectGallery({ projects }: ProjectGalleryProps) {
                             <h2 className="font-display text-3xl text-white">{selectedProject.title}</h2>
                             {selectedProject.subtitle && <p className="mt-2 text-neutral-400">{selectedProject.subtitle}</p>}
                             
-                            {selectedProject.caseStudy ? (
-                                <div className="mt-10 space-y-8">
-                                    <div>
-                                        <h3 className="text-sm uppercase tracking-widest text-neutral-500">The Problem</h3>
-                                        <p className="mt-3 leading-relaxed text-neutral-300">{selectedProject.caseStudy.problem}</p>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-sm uppercase tracking-widest text-neutral-500">The Approach</h3>
-                                        <p className="mt-3 leading-relaxed text-neutral-300">{selectedProject.caseStudy.approach}</p>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-sm uppercase tracking-widest text-neutral-500">Results</h3>
-                                        <ul className="mt-3 list-disc pl-5 space-y-2 text-neutral-300">
-                                            {selectedProject.caseStudy.results.map((res, i) => (
-                                                <li key={i}>{res}</li>
-                                            ))}
-                                        </ul>
-
-                                        {selectedProject.id === 'inventory-system' && (
-                                            <div className="mt-6 flex flex-col gap-2 rounded-xl border border-white/10 bg-white/5 p-4">
-                                                <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Throughput / Latency (Simulated)</p>
-                                                <div className="flex items-end gap-2 h-16 w-full">
-                                                    {[20, 35, 60, 90, 126, 126, 125, 126].map((val, i) => (
-                                                        <div key={i} className="flex-1 bg-green-500/50 rounded-t-sm relative group transition-all hover:bg-green-400" style={{ height: `${(val / 126) * 100}%` }}>
-                                                            <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 text-[10px] text-white transition-opacity">{val}</div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            ) : (
-                                <p className="mt-10 leading-7 text-neutral-300">{selectedProject.description}</p>
-                            )}
+                            <p className="mt-10 leading-7 text-neutral-300">{selectedProject.description}</p>
                         </motion.div>
                     </div>
                 )}

@@ -11,11 +11,6 @@ export interface Project {
   featured: boolean;
   category: string | null;
   topMetric?: { value: string; label: string };
-  caseStudy?: {
-    problem: string;
-    approach: string;
-    results: string[];
-  };
 }
 
 export const placeholderProjects: Project[] = [
@@ -53,12 +48,7 @@ export const placeholderProjects: Project[] = [
     year: 2026,
     featured: true,
     category: 'Backend',
-    topMetric: { value: '126 req/s', label: '0% errors' },
-    caseStudy: {
-      problem: 'E-commerce platforms face significant challenges during high-traffic events, often leading to overselling due to race conditions in inventory updates.',
-      approach: 'I designed a distributed inventory backend using Spring Boot 3 and Java 17. To prevent overselling, I implemented optimistic locking at the database level and a robust JWT-based RBAC system to secure endpoints.',
-      results: ['Load tested at ~9,000 concurrent requests', 'Achieved 126 req/s throughput', 'Maintained 0% error rate under peak load']
-    }
+    topMetric: { value: '126 req/s', label: '0% errors' }
   },
 
   {
